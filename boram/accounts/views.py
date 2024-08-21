@@ -27,6 +27,7 @@ def logout(request):
     return redirect("index")
 
 
+@require_http_methods(['GET','POST'])
 def signup(request):
     if request.method =="POST":
         form = UserCreationForm(request.POST)
@@ -38,3 +39,7 @@ def signup(request):
         form = UserCreationForm()
     context = {"form":form}
     return render(request, "accounts/signup.html", context)
+
+
+def delete(request):
+    pass
