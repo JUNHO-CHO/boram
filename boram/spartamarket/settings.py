@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'boram.urls'
+ROOT_URLCONF = 'spartamarket.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'boram.wsgi.application'
+WSGI_APPLICATION = 'spartamarket.wsgi.application'
 
 
 # Database
