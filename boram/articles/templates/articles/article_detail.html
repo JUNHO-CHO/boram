@@ -1,0 +1,23 @@
+<!-- 게시글 상세페이지 -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Article Detail</h1><br>
+
+<h2>제목: {{ article.title }}</h2><br>
+
+<p>내용: {{ article.content}}</p><br><br>
+
+<p>작성일시: {{ article.created_at }}</p>
+<p>수정일시: {{ article.updated_at }}</p>
+<a href="{% url 'articles' %}">
+    <button>목록 보기</button>
+</a>
+
+<!-- 글 삭제 버튼 -->
+<form action="{% url 'delete' article.pk %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="글 삭제">
+</form>
+
+{% endblock content %}

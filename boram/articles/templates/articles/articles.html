@@ -1,0 +1,16 @@
+<!-- 글 목록 페이지 -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Articles</h1>
+<a href="{% url 'new' %}">
+    <button>새로운 글작성</button>
+</a>
+
+{% for article in articles %}
+    <a href="{% url 'article_detail' article.pk %}">
+        <p>[ {{ article.pk }} ]{{ article.title }}</p>
+    </a>
+{% endfor %}
+
+{% endblock content %}
