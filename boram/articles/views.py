@@ -27,3 +27,9 @@ def delete(request, pk):
     article.delete()
     # 글 삭제하면 목록으로 돌아감
     return redirect("articles")
+
+def create(request):
+    title = request.POST.get("title")
+    content = request.POST.get("content")
+    article = Article.objects.create(title=title, content=content)
+    return redirect("article_detail", article.pk)
