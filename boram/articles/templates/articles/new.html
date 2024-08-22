@@ -4,7 +4,7 @@
 {% block content %}
 <h1>New Article</h1>
 
-<form action="{% url 'create' %}" method="POST">
+<form action="{% url 'articles:create' %}" method="POST">
     {% csrf_token %}
     <label for="title">제목</label>
     <input type="text" name="title" id="title"><br><br>
@@ -16,7 +16,7 @@
 
 </form>
 
-<a href="{% url 'articles' %}">
+<a href="{% url 'articles:articles' %}">
     <button>목록</button>
 </a>
 
