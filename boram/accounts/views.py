@@ -24,19 +24,19 @@ def login(request):
 def logout(request):
     if request.user.is_authenticated:
         auth_logout(request)
-    return redirect("index")
+    return redirect("articles:index")
 
 
 @require_http_methods(['GET','POST'])
 def signup(request):
     if request.method =="POST":
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form. is_valid():
             user=form.save()
             auth_login(request, user)
-            return redirect("index")
+            return redirect("articles:index")
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()
     context = {"form":form}
     return render(request, "accounts/signup.html", context)
 
