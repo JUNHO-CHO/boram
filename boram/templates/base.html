@@ -5,7 +5,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
@@ -306,23 +305,23 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <!-- if user 로그인 되어있으면 -->
+                                {% if request.user.is_authenticated %}
                                 <li>
-                                    <form action="#" method="POST"><!-- 로그아웃 url -->
+                                    <form action="{% url 'accounts:logout' %}" method="POST"><!-- 로그아웃 url -->
                                         {% csrf_token %}
                                         <input class="dropdown-item" type="submit" value="log out">
                                     </form>
                                 </li>
                                 <li>
-                                    <form action="#" method="post"><!-- 회원탈퇴 url -->
+                                    <form action="{% url 'accounts:delete' %}" method="post"><!-- 회원탈퇴 url -->
                                         {% csrf_token %}
                                         <input class="dropdown-item" type="submit" value="delete ID">
                                     </form>
                                 </li>
-                                <!-- else -->
+                                {% else %}
                                 <li><a class="dropdown-item" href="{% url 'accounts:login'%}">sign in</a></li>
                                 <li><a class="dropdown-item" href="{% url 'accounts:signup'%}">sign up</a></li>
-                                <!-- end -->
+                                {% endif %}
                             </ul>
                         </div>
                     </div>
