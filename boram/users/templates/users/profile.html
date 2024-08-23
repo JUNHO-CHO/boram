@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ member.username }}의 프로필 페이지</h1>
+
+    <div>
+        
+        <img src="{{ request.user.image.url }}" style="width: 200px; object-fit: cover;"><h2>{{ member.username }}</h2>
+        <p>
+            팔로워 : {{ member.followers.count }}명
+            팔로잉 : {{ member.following.count }}명
+        </p>
+    </div>
+
+    <div>
+        <form action="{% url 'users:follow' member.id %}" method="POST">
+            {% csrf_token %}
+            {% if request.user in member.followers.all %}
+                <button type="submit">언팔로우</button>
+            {% else %}
+                <button type="submit">팔로우</button>
+            {% endif %}
+        </form>
+    </div>
+
+    <a href="{% url 'articles:index' %}">홈으로 돌아가기</a>
+
+{% endblock content %}
