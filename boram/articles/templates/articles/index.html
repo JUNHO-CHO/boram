@@ -4,15 +4,15 @@
 <h2>main page</h2>
 <form action="{% url 'accounts:login' %}" method="get">
     {% csrf_token %}
-    <input type="submit" value="로그인">
+    <!-- <input type="submit" value="로그인"> -->
 </form>
 <form action="{% url 'accounts:logout' %}" method="post">
     {% csrf_token %}
-    <input type="submit" value="로그아웃">
+    <!-- <input type="submit" value="로그아웃"> -->
 </form>
 <form action="{% url 'accounts:signup' %}" method="get">
     {% csrf_token %}
-    <input type="submit" value="회원가입">
+    <!-- <input type="submit" value="회원가입"> -->
 </form>
 <!-- <form action="{# url 'accounts:signup' #}">
     {# csrf_token #}

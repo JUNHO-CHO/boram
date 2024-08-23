@@ -3,10 +3,10 @@
 {% block content %}
     <h1>회원 정보 수정</h1>
 
-    <form action="{% url "accounts:update" %}" method="POST">
+    <form action="{% url 'accounts:update' %}" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">UPDATE</button>
+    <button type="submit">UPDATE</button>
     </form>
 
-{% endblock %}
+{% endblock content %}
