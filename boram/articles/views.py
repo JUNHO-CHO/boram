@@ -33,3 +33,6 @@ def create(request):
     content = request.POST.get("content")
     article = Article.objects.create(title=title, content=content)
     return redirect("articles:article_detail", article.pk)
+
+def like(request):
+    return redirect("articles:articles")
