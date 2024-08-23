@@ -315,7 +315,7 @@
                                     </li>
                                     <li>
                                         
-                                        <form action="{% url 'accounts:update' %}" method="POST"><!-- 회원 정보 수정 url -->
+                                        <form action="{% url 'accounts:update' %}" method="GET"><!-- 회원 정보 수정 url -->
                                             {% csrf_token %}
                                             <input class="dropdown-item" type="submit" value="update">
                                         </form>
