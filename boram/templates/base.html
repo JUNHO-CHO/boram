@@ -296,31 +296,39 @@
                                 {% endif %}
                             </a>
                             <ul class="dropdown-menu text-small">
-                                <!-- if user 로그인 되어있으면 -->
-                                <li><a class="dropdown-item" href="">{{ request.user }}</a></li>
-                                <!-- elif -->
-                                <li><a class="dropdown-item" href="#">My Page</a></li>
-                                <li><a class="dropdown-item" href="#">Settings</a></li>
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
                                 {% if request.user.is_authenticated %}
-                                <li>
-                                    <form action="{% url 'accounts:logout' %}" method="POST"><!-- 로그아웃 url -->
-                                        {% csrf_token %}
-                                        <input class="dropdown-item" type="submit" value="log out">
-                                    </form>
-                                </li>
-                                <li>
-                                    <form action="{% url 'accounts:delete' %}" method="post"><!-- 회원탈퇴 url -->
-                                        {% csrf_token %}
-                                        <input class="dropdown-item" type="submit" value="delete ID">
-                                    </form>
-                                </li>
+                                    <li><a class="dropdown-item" href="">{{ request.user }}</a></li>
+                                    <!-- elif -->
+                                    <li><a class="dropdown-item" href="#">My Page</a></li>
+                                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                {% endif %}
+                                {% if request.user.is_authenticated %}
+                                    <li>
+                                        <form action="{% url 'accounts:logout' %}" method="POST"><!-- 로그아웃 url -->
+                                            {% csrf_token %}
+                                            <input class="dropdown-item" type="submit" value="log out">
+                                        </form>
+                                    </li>
+                                    <li>
+                                        
+                                        <form action="{% url 'accounts:update' %}" method="POST"><!-- 회원 정보 수정 url -->
+                                            {% csrf_token %}
+                                            <input class="dropdown-item" type="submit" value="update">
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form action="{% url 'accounts:delete' %}" method="POST"><!-- 회원탈퇴 url -->
+                                            {% csrf_token %}
+                                            <input class="dropdown-item" type="submit" value="delete ID">
+                                        </form>
+                                    </li>
                                 {% else %}
-                                <li><a class="dropdown-item" href="{% url 'accounts:login'%}">sign in</a></li>
-                                <li><a class="dropdown-item" href="{% url 'accounts:signup'%}">sign up</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'accounts:login'%}">sign in</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'accounts:signup'%}">sign up</a></li>
                                 {% endif %}
                             </ul>
                         </div>
