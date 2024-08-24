@@ -5,7 +5,7 @@
 
     <div>
         
-        <img src="{{ request.user.image.url }}" style="width: 200px; object-fit: cover;"><h2>{{ member.username }}</h2>
+        <img src="{{ request.user.image.url }}" style="width: 200px; object-fit: cover;" class="rounded-circle"><h2>{{ member.username }}</h2>
         <p>
             팔로워 : {{ member.followers.count }}명
             팔로잉 : {{ member.following.count }}명
@@ -23,6 +23,6 @@
         </form>
     </div>
 
-    <a href="{% url 'articles:index' %}">홈으로 돌아가기</a>
+    <a href="{% url 'articles:articles' %}">홈으로 돌아가기</a>
 
 {% endblock content %}

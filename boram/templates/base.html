@@ -5,7 +5,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!--중요-->
@@ -20,84 +19,9 @@
         Array.from(document.querySelectorAll('.toast'))
             .forEach(toastNode => new Toast(toastNode))
     </script>
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-
-        .b-example-divider {
-            width: 100%;
-            height: 3rem;
-            background-color: rgba(0, 0, 0, .1);
-            border: solid rgba(0, 0, 0, .15);
-            border-width: 1px 0;
-            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        }
-
-        .b-example-vr {
-            flex-shrink: 0;
-            width: 1.5rem;
-            height: 100vh;
-        }
-
-        .bi {
-            vertical-align: -.125em;
-            fill: currentColor;
-        }
-
-        .nav-scroller {
-            position: relative;
-            z-index: 2;
-            height: 2.75rem;
-            overflow-y: hidden;
-        }
-
-        .nav-scroller .nav {
-            display: flex;
-            flex-wrap: nowrap;
-            padding-bottom: 1rem;
-            margin-top: -1px;
-            overflow-x: auto;
-            text-align: center;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .btn-bd-primary {
-            --bd-violet-bg: #712cf9;
-            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
-            --bs-btn-font-weight: 600;
-            --bs-btn-color: var(--bs-white);
-            --bs-btn-bg: var(--bd-violet-bg);
-            --bs-btn-border-color: var(--bd-violet-bg);
-            --bs-btn-hover-color: var(--bs-white);
-            --bs-btn-hover-bg: #6528e0;
-            --bs-btn-hover-border-color: #6528e0;
-            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-            --bs-btn-active-color: var(--bs-btn-hover-color);
-            --bs-btn-active-bg: #5a23c8;
-            --bs-btn-active-border-color: #5a23c8;
-        }
-
-        .bd-mode-toggle {
-            z-index: 1500;
-        }
-
-        .bd-mode-toggle .dropdown-menu .active .bi {
-            display: block !important;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1.2">
+    <script src="{% static 'js/script.js' %}"></script>
+    
     {% block titlename %}
     {% endblock titlename %}
     {% block head %}
@@ -251,50 +175,44 @@
             </path>
         </symbol>
     </svg>
-
     <header class="py-3 mb-3 border-bottom">
-        <div class="row g-0 text-center" style="margin-left: 20px; margin-right: 15px;">
-            <div class="col-8">
-                <div class="dropdown">
-                    <a href="#"
-                        class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <svg class="bi me-2" width="40" height="32">
-                            <use xlink:href="#bootstrap"></use>
-                        </svg>
-                    </a>
-                    <ul class="dropdown-menu text-small shadow">
-                        <li><a class="dropdown-item active" href="#" aria-current="page">Overview</a></li>
-                        <li><a class="dropdown-item"
-                                href="https://teamsparta.notion.site/b1f541f0549f4e7f9e07c9cc547f1ec6">Team Notion</a>
-                        </li>
-                        <li><a class="dropdown-item" href="https://spartacodingclub.kr/">sparta</a></li>
-                        <li><a class="dropdown-item" href="#">Products</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Reports</a></li>
-                        <li><a class="dropdown-item" href="#">Analytics</a></li>
-                    </ul>
-                </div>
+        <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
+            <div class="dropdown">
+                <a href="#"
+                    class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <svg class="bi me-2" width="40" height="32">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+                <ul class="dropdown-menu text-small shadow" style="">
+                    <li class="dropdown-item" aria-current="page" style="pointer-events:none;">Overview</li>
+                    <li><a class="dropdown-item" href="#">Inventory</a></li>
+                    <li><a class="dropdown-item" href="#">Customers</a></li>
+                    <li><a class="dropdown-item" href="#">Products</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Reports</a></li>
+                    <li><a class="dropdown-item" href="#">Analytics</a></li>
+                </ul>
             </div>
-            <div class="col-4">
-                <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
-                    <div class="d-flex align-items-center" style="margin-left: 250px;">
-                        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-                        </form>
 
-                        <div class="dropdown text-end">
-                            <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="d-flex align-items-center">
+                <form class="w-100 me-3" role="search">
+                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                </form>
+
+                <div class="flex-shrink-0 dropdown">
+                    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                                 {% if request.user.is_authenticated %}
                                 {% if request.user.image %}
                                 <img src="{{ request.user.image.url }}" alt="mdo" height="32" class="rounded-circle"
                                     style="width: 32px;">
                                 {% else %}
-                                <img src="https://teamsparta.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F83c75a39-3aba-4ba4-a792-7aefe4b07895%2F91b523d3-e116-4d12-a8c9-401ea4b12c4a%2Fuser.png?table=block&id=7d771e5a-5901-42b4-9532-f42f6bf86e5d&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=260&userId=&cache=v2" alt="mdo" height="32" class="rounded-circle"
-                                    style="width: 32px;">
+                                <img src="https://teamsparta.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F83c75a39-3aba-4ba4-a792-7aefe4b07895%2F91b523d3-e116-4d12-a8c9-401ea4b12c4a%2Fuser.png?table=block&id=7d771e5a-5901-42b4-9532-f42f6bf86e5d&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=260&userId=&cache=v2"
+                                    alt="mdo" height="32" class="rounded-circle" style="width: 32px;">
                                 {% endif %}
                                 {% else %}
                                 <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -302,50 +220,48 @@
                                     <path
                                         d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
                                 </svg> -->
-                                
+
                                 <img src="https://teamsparta.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F83c75a39-3aba-4ba4-a792-7aefe4b07895%2F91b523d3-e116-4d12-a8c9-401ea4b12c4a%2Fuser.png?table=block&id=7d771e5a-5901-42b4-9532-f42f6bf86e5d&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=260&userId=&cache=v2"
                                     alt="mdo" height="32" class="rounded-circle" style="width: 32px;">
                                 {% endif %}
-                            </a>
-                            <ul class="dropdown-menu text-small">
-                                {% if request.user.is_authenticated %}
-                                <li class="dropdown-item" onclick="event.stopPropagation();">{{ request.user }}</li>
-                                {% else %}
-                                <li><a class="dropdown-item" href="">Guest</a></li>
-                                {% endif %}
-                                {% if request.user.is_authenticated %}
-                                <li><a class="dropdown-item" href="{% url 'users:profile' request.user.username %}">My
-                                        Page</a></li>
-                                <li><a class="dropdown-item" href="{% url 'accounts:update' %}">Settings</a></li>
-                                <li><a class="dropdown-item" href="">Profile</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <form action="{% url 'accounts:logout' %}" method="POST"><!-- 로그아웃 url -->
-                                        {% csrf_token %}
-                                        <input class="dropdown-item" type="submit" value="log out">
-                                    </form>
-                                </li>
-                                <li>
-                                    <form action="{% url 'accounts:delete' %}" method="post"><!-- 회원탈퇴 url -->
-                                        {% csrf_token %}
-                                        <input class="dropdown-item" type="submit" value="delete ID">
-                                    </form>
-                                </li>
-                                {% else %}
-                                <li><a class="dropdown-item" href="{% url 'accounts:login'%}">sign in</a></li>
-                                <li><a class="dropdown-item" href="{% url 'accounts:signup'%}">sign up</a></li>
-                                {% endif %}
-                            </ul>
-                        </div>
-                    </div>
+                    </a>
+                    <ul class="dropdown-menu text-small">
+                        {% if request.user.is_authenticated %}
+                        <li class="dropdown-item" onclick="event.stopPropagation();" style="pointer-events:none;">{{ request.user }}</li>
+                        {% else %}
+                        <li><a class="dropdown-item" href="" style="pointer-events:none;">Guest</a></li>
+                        {% endif %}
+                        {% if request.user.is_authenticated %}
+                        <li><a class="dropdown-item" href="{% url 'users:profile' request.user.username %}">My
+                                Page</a></li>
+                        <li><a class="dropdown-item" href="{% url 'accounts:update' %}">Settings</a></li>
+                        <li><a class="dropdown-item" href="">Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <form action="{% url 'accounts:logout' %}" method="POST"><!-- 로그아웃 url -->
+                                {% csrf_token %}
+                                <input class="dropdown-item" type="submit" value="log out">
+                            </form>
+                        </li>
+                        <li>
+                            <form action="{% url 'accounts:delete' %}" method="post"><!-- 회원탈퇴 url -->
+                                {% csrf_token %}
+                                <input class="dropdown-item" type="submit" value="delete ID">
+                            </form>
+                        </li>
+                        {% else %}
+                        <li><a class="dropdown-item" href="{% url 'accounts:login'%}">sign in</a></li>
+                        <li><a class="dropdown-item" href="{% url 'accounts:signup'%}">sign up</a></li>
+                        {% endif %}
+                    </ul>
                 </div>
             </div>
         </div>
-
-
     </header>
+
+
     <!-- <div class="container-fluid pb-3">
         <div class="d-grid gap-3" style="grid-template-columns: 1fr 2fr;">
             <div class="bg-body-tertiary border rounded-3">
