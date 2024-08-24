@@ -14,28 +14,13 @@ def index(request):
 
 # 글 목록 페이지
 
+
 def articles(request):
     articles = Article.objects.all().order_by("-created_at")
     context = {
         "articles": articles,
     }
     return render(request, "articles/articles.html", context)
-
-
-@login_required
-def new(request):
-    if request.user:
-        return render(request, "articles/new.html")
-    return redirect("accounts:")
-
-
-def create(request):
-    article = Article()
-    article.title = request.POST.get("title")
-    article.content = request.POST.get("content")
-    article.author = request.user
-    article.save()
-    return redirect("articles:article_detail", article.pk)
 
 
 # 글 상세페이지
@@ -47,17 +32,20 @@ def article_detail(request, pk):
 # 글 작성 페이지
 def create(request):
     if request.method == "POST":
-        form = ArticleForm(request.POST)
+        form = ArticleForm(request.POST, request.Files)
         if form.is_valid():
+            article = form.save(submit=False)
+            article.author = request.user
             article = form.save()
             return redirect("articles:article_detail", article.pk)
     else:
         form = ArticleForm()
 
-    context = {"form":form}
+    context = {"form": form}
     return render(request, "articles/create.html", context)
 
 # 글 수정페이지
+
 
 def update(request, pk):
     article = Article.objects.get(pk=pk)
@@ -67,15 +55,17 @@ def update(request, pk):
             article = form.save()
             return redirect("articles:article_detail", article.pk)
     else:
-        form =ArticleForm(isinstance=article)
+        form = ArticleForm(isinstance=article)
 
     context = {
-        "form":form,
+        "form": form,
         "article": article,
     }
     return render(request, "articles/update.html", context)
 
 # 글 삭제
+
+
 def delete(request, pk):
     # 글 삭제
     article = Article.objects.get(pk=pk)

@@ -7,7 +7,7 @@
 
 <form action="{% url 'articles:create' %}" method="POST">
     {% csrf_token %}
-    {{ forms.as_p }}
+    {{ form.as_p }}
     <button type="submit">저장</button>
     
 
