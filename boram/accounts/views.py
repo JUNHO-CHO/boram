@@ -14,20 +14,21 @@ from django.contrib.auth import update_session_auth_hash
 from .forms import (
     CustomUserChangeForm,
     CustomUserCreationForm,
-    PasswordConfirmationForm
+    PasswordConfirmationForm,
+    CustomLoginForm,
 )
 
 
 @require_http_methods(['GET', 'POST'])
 def login(request):
     if request.method == "POST":
-        form = AuthenticationForm(data=request.POST)
+        form = CustomLoginForm(data=request.POST)
         if form.is_valid():
             auth_login(request, form.get_user())
             netx_url = request.GET.get("next") or "index"
             return redirect("articles:index")
     else:
-        form = AuthenticationForm()
+        form = CustomLoginForm()
     context = {"form": form}
     return render(request, "accounts/login.html", context)
 

@@ -20,8 +20,13 @@
             .forEach(toastNode => new Toast(toastNode))
     </script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1.2">
+    <link rel="stylesheet" href="{% static 'css/sign-in.css' %}?v=1.2">
+    <link rel="stylesheet" href="{% static 'assets/dist/css/bootstrap.min.css' %}?v=1.2">
+    <link rel="stylesheet" href="{% static 'assets/js/color-modes.js' %}?v=1.2">
+
     <script src="{% static 'js/script.js' %}"></script>
-    
+    <!-- <script src="{% static 'assets/dist/js/bootstrap.bundle.min.js' %}"></script> -->
+
     {% block titlename %}
     {% endblock titlename %}
     {% block head %}
@@ -175,6 +180,8 @@
             </path>
         </symbol>
     </svg>
+
+    {% block header %}
     <header class="py-3 mb-3 border-bottom">
         <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
             <div class="dropdown">
@@ -206,28 +213,30 @@
                 <div class="flex-shrink-0 dropdown">
                     <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                                {% if request.user.is_authenticated %}
-                                {% if request.user.image %}
-                                <img src="{{ request.user.image.url }}" alt="mdo" height="32" class="rounded-circle"
-                                    style="width: 32px;">
-                                {% else %}
-                                <img src="https://teamsparta.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F83c75a39-3aba-4ba4-a792-7aefe4b07895%2F91b523d3-e116-4d12-a8c9-401ea4b12c4a%2Fuser.png?table=block&id=7d771e5a-5901-42b4-9532-f42f6bf86e5d&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=260&userId=&cache=v2"
-                                    alt="mdo" height="32" class="rounded-circle" style="width: 32px;">
-                                {% endif %}
-                                {% else %}
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        {% if request.user.is_authenticated %}
+                        {% if request.user.image %}
+                        <img src="{{ request.user.image.url }}" alt="mdo" height="32" class="rounded-circle"
+                            style="width: 32px;">
+                        {% else %}
+                        <img src="https://teamsparta.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F83c75a39-3aba-4ba4-a792-7aefe4b07895%2F91b523d3-e116-4d12-a8c9-401ea4b12c4a%2Fuser.png?table=block&id=7d771e5a-5901-42b4-9532-f42f6bf86e5d&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=260&userId=&cache=v2"
+                            alt="mdo" height="32" class="rounded-circle" style="width: 32px;">
+                        {% endif %}
+                        {% else %}
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-person" viewBox="0 0 16 16" style="margin-bottom: 4px;">
                                     <path
                                         d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
                                 </svg> -->
 
-                                <img src="https://teamsparta.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F83c75a39-3aba-4ba4-a792-7aefe4b07895%2F91b523d3-e116-4d12-a8c9-401ea4b12c4a%2Fuser.png?table=block&id=7d771e5a-5901-42b4-9532-f42f6bf86e5d&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=260&userId=&cache=v2"
-                                    alt="mdo" height="32" class="rounded-circle" style="width: 32px;">
-                                {% endif %}
+                        <img src="https://teamsparta.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F83c75a39-3aba-4ba4-a792-7aefe4b07895%2F91b523d3-e116-4d12-a8c9-401ea4b12c4a%2Fuser.png?table=block&id=7d771e5a-5901-42b4-9532-f42f6bf86e5d&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=260&userId=&cache=v2"
+                            alt="mdo" height="32" class="rounded-circle" style="width: 32px;">
+                        {% endif %}
                     </a>
                     <ul class="dropdown-menu text-small">
                         {% if request.user.is_authenticated %}
-                        <li class="dropdown-item" onclick="event.stopPropagation();" style="pointer-events:none;">{{ request.user }}</li>
+                        <li class="dropdown-item" onclick="event.stopPropagation();" style="pointer-events:none;">
+                            {{ request.user }}
+                        </li>
                         {% else %}
                         <li><a class="dropdown-item" href="" style="pointer-events:none;">Guest</a></li>
                         {% endif %}
@@ -260,6 +269,7 @@
             </div>
         </div>
     </header>
+    {% endblock header %}
 
 
     <!-- <div class="container-fluid pb-3">
@@ -280,6 +290,7 @@
 
 
 
+    {% block footer %}
     <!-- footer -->
     <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -305,6 +316,7 @@
             </ul>
         </footer>
     </div>
+    {% endblock footer %}
 
 </body>
 

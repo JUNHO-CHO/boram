@@ -3,6 +3,9 @@
 
 
 {% block titlename %}
+
+{% block header %}
+{% endblock header %}
 <title>login</title>
 <style>
     p>label {
@@ -520,10 +523,49 @@
 </style>
 {% endblock titlename %}
 {% block content %}
-<h1>로그인</h1>
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">로그인</button>
-</form>
+
+
+<body class="d-flex align-items-center py-4 bg-body-tertiary">
+    <!-- <main class="form-signin w-100 m-auto">
+        <form action="" method="POST">
+            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+            {% csrf_token %}
+            <div class="form-floating">
+                {{ form.as_p }}
+            </div>
+            <button type="submit">로그인</button>
+        </form>
+    </main> -->
+    <main class="form-signin w-100 m-auto">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <img class="mb-4" src="../../../../static/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+            <div class="form-floating">
+                <input type="text" name="username" autofocus="" class="form-control" autocapitalize="none"
+                    autocomplete="username" maxlength="150" required="" id="id_username">
+                <label for="floatingInput">User name</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" name="password" autocomplete="current-password" class="form-control" required=""
+                    id="id_password">
+                <label for="floatingPassword">Password</label>
+            </div>
+
+            <div class="form-check text-start my-3">
+                <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Remember me
+                </label>
+            </div>
+            <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+            <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
+        </form>
+    </main>
+</body>
 {% endblock content %}
+
+{% block footer %}
+
+{% endblock footer %}

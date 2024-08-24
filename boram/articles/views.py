@@ -32,10 +32,8 @@ def article_detail(request, pk):
 # 글 작성 페이지
 def create(request):
     if request.method == "POST":
-        form = ArticleForm(request.POST, request.Files)
+        form = ArticleForm(request.POST)
         if form.is_valid():
-            article = form.save(submit=False)
-            article.author = request.user
             article = form.save()
             return redirect("articles:article_detail", article.pk)
     else:

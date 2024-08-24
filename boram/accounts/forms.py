@@ -2,10 +2,48 @@ from django import forms
 from django.contrib.auth.forms import (
     UserChangeForm,
     UserCreationForm,
-    AuthenticationForm
+    AuthenticationForm,
+    UsernameField,
+    _,
 )
 from django.contrib.auth import get_user_model
 from django.urls import reverse
+
+
+class CustomLoginForm(AuthenticationForm):
+    username = UsernameField(widget=forms.TextInput(attrs={"autofocus": True, 'class': 'form-control'}))
+    password = forms.CharField(
+        label=_("Password"),
+        strip=False,
+        widget=forms.PasswordInput(attrs={"autocomplete": "current-password", 'class': 'form-control'}),
+    )
+
+    # username = forms.CharField(
+    #     widget=forms.TextInput(
+    #         attrs={'class': 'customname'}
+    #     )
+    # )
+    # password = forms.CharField(
+    #     widget=forms.PasswordInput(
+    #         attrs={'class': 'custompass'}
+    #     )
+    # )
+
+    # class Meta:
+    #     model = get_user_model()
+    #     fields = "__all__"
+    #     widgets = {
+    #         'username': forms.CharField(
+    #             attrs={
+    #                 'class': 'customname'
+    #             }
+    #         ),
+    #         'password': forms.PasswordInput(
+    #             attrs={
+    #                 'class': 'custompass'
+    #             }
+    #         )
+    #     }
 
 
 class CustomUserCreationForm(UserCreationForm):

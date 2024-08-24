@@ -9,8 +9,8 @@ class Article(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField(upload_to="images/article/", blank=True)
-    author = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="articles")
+    # author = models.ForeignKey(
+    #     settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="articles")
 
     def __str__(self):
         return self.title
