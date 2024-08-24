@@ -11,7 +11,11 @@ from django.contrib.auth.forms import (
     UserChangeForm,
 )
 from django.contrib.auth import update_session_auth_hash
-from .forms import CustomUserChangeForm, CustomUserCreationForm
+from .forms import (
+    CustomUserChangeForm,
+    CustomUserCreationForm,
+    PasswordConfirmationForm
+)
 
 
 @require_http_methods(['GET', 'POST'])
@@ -51,10 +55,16 @@ def signup(request):
 
 @require_POST
 def delete(request):
-    if request.user.is_authenticated:
-        request.user.delete()
-        auth_logout(request)
-    return redirect("articles:index")
+    if request.method == "POST":
+        form = PasswordConfirmationForm(request, data=request.POST)
+        if form.is_valid():
+            request.user.delete()
+            auth_logout(request)
+            return redirect("articles:index")
+    else:
+        form = PasswordConfirmationForm()
+    context = {"form":form}
+    return render(request, "accounts/delete.html", context)
 
 
 @require_http_methods(["GET", "POST"])
