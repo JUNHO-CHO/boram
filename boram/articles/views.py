@@ -20,13 +20,13 @@ def articles(request):
 # 글 상세페이지
 def article_detail(request, pk):
     article = Article.objects.get(pk=pk)
-    context = {"article": article,}
+    context = {"articles": articles,}
     return render(request, "articles/article_detail.html", context)
 
 # 글 작성 페이지
 def create(request):
     if request.method == "POST":
-        forms = ArticleForm(request.POST)
+        form = ArticleForm(request.POST)
         if form.is_valid():
             article = form.save()
             return redirect("articles:article_detail", article.pk)
@@ -34,7 +34,7 @@ def create(request):
         form = ArticleForm()
 
     context = {"form":form}
-    return render(request, "articles/creat.html", context)
+    return render(request, "articles/create.html", context)
 
 # 글 수정페이지
 
