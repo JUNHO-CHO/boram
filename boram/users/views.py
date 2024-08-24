@@ -2,10 +2,15 @@ from django.shortcuts import render, redirect
 from django.views.decorators.http import require_POST
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user_model
+from accounts.models import User
 
 
 def users(request):
-    return render(request, "users/users.html")
+    users = User.objects.all().order_by("id")
+    # for user in users:
+    #     print(user.username)
+    context = {"users":users}
+    return render(request, "users/users.html", context)
 
 
 # def profile(request, username):
