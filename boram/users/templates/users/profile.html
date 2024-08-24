@@ -8,7 +8,7 @@
         <img src="{{ request.user.image.url }}" style="width: 200px; object-fit: cover;" class="rounded-circle"><h2>{{ member.username }}</h2>
         <p>
             팔로워 : {{ member.followers.count }}명
-            팔로잉 : {{ member.following.count }}명
+            팔로잉 : {{ member.followings.count }}명
         </p>
     </div>
 
