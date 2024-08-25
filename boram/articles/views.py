@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Article, Comment
+from .forms import ArticleForm, CommentForm
 from django.http import HttpResponse
-from .models import Article
 from django.contrib.auth.decorators import login_required
-from .forms import ArticleForm
-
+from django.views.decorators.http import require_http_methods, require_POST
 
 
 # Create your views here.
@@ -29,11 +29,13 @@ def article_detail(request, pk):
     context = {"article": article, }
     return render(request, "articles/article_detail.html", context)
 
-# 글 작성 페이지
+@login_required
 def create(request):
     if request.method == "POST":
-        form = ArticleForm(request.POST)
+        form = ArticleForm(request.POST, request.FILES)
         if form.is_valid():
+            article = form.save(commit=False)
+            article.author = request.user
             article = form.save()
             return redirect("articles:article_detail", article.pk)
     else:
@@ -44,16 +46,21 @@ def create(request):
 
 # 글 수정페이지
 
-
+@login_required
+@require_http_methods(["GET", "POST"])
 def update(request, pk):
-    article = Article.objects.get(pk=pk)
-    if request.method == "POST":
-        form = ArticleForm(request.POST, instance=article)
-        if form.is_valid():
-            article = form.save()
-            return redirect("articles:article_detail", article.pk)
+    article = get_object_or_404(pk=pk)
+    if article.author == request.user:
+        if request.method == "POST":
+            form = ArticleForm(request.POST, instance=article)
+            if form.is_valid():
+                article = form.save()
+                return redirect("articles:article_detail", article.pk)
+        else:
+            form = ArticleForm(instance=article)
     else:
-        form = ArticleForm(isinstance=article)
+        return redirect("articles:articles")
+
 
     context = {
         "form": form,
@@ -63,14 +70,37 @@ def update(request, pk):
 
 # 글 삭제
 
-
+@require_POST
 def delete(request, pk):
     # 글 삭제
     article = Article.objects.get(pk=pk)
-    article.delete()
+    if request.user.is_authenticated:
+        if article.author == request.user:
+            article = get_object_or_404(Article, pk=pk)
+            article.delete()
     # 글 삭제하면 목록으로 돌아감
     return redirect("articles:articles")
 
 
 def like(request, pk):
     return redirect("articles:articles")
+
+@require_POST
+def comment_create(request, pk):
+    article = get_object_or_404(Article, pk=pk)
+    form = CommentForm(request.POST)
+    if form.is_valid():
+        comment = form.save(commit=False)
+        comment.article = article
+        comment.user = request.user
+        comment.save()
+        return redirect("articles:article_detail", article.pk)
+
+
+@require_POST
+def comment_delete(request, pk, comment_pk):
+    if request.user.is_authenticated:
+        comment = get_object_or_404(Comment, pk=comment_pk)
+        if comment.user == request.user:
+            comment.delete()
+    return redirect("articles:article_detail", pk)
