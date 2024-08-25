@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block titlename %}
+<title>{{ member.username }} 프로필</title>
+{% endblock titlename %}
+{% block content %}
+
+<div>
+
+    <img src="{{ member.image.url }}" style="width: 150px; object-fit: cover;" class="rounded-circle">
+    <h2 style="padding: 0 0 0 20; margin-left: 30PX;">{{ member.username }}</h2>
+    <p>
+        팔로워 : {{ member.followers.count }}명
+        팔로잉 : {{ member.followings.count }}명
+    </p>
+</div>
+
+<div>
+    <form action="{% url 'users:follow' member.id %}" method="POST">
+        {% csrf_token %}
+        {% if request.user in member.followers.all %}
+        <button type="submit">언팔로우</button>
+        {% else %}
+        <button type="submit">팔로우</button>
+        {% endif %}
+    </form>
+</div>
+
+<a href="{% url 'articles:articles' %}">홈으로 돌아가기</a>
+
+{% endblock content %}

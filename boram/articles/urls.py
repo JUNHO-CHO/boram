@@ -5,9 +5,14 @@ from . import views
 app_name="articles"
 urlpatterns = [
     path("index/", views.index, name = "index"),
+    # 글 목록 페이지
     path("",views.articles, name="articles"),
+    # 상세 페이지
     path("<int:pk>/", views.article_detail, name="article_detail"),
-    path("new/",views.new, name="new"),
+    # 글 작성 페이지
     path("create/",views.create, name="create"),
+    # 글 삭제
     path("<int:pk>/delete/", views.delete, name="delete"),
+    path("<int:pk>/update/", views.update, name="update"),
+    path("<int:pk>/like/", views.like, name="like"),
 ]
