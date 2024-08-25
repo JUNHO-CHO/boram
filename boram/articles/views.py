@@ -49,7 +49,7 @@ def create(request):
 @login_required
 @require_http_methods(["GET", "POST"])
 def update(request, pk):
-    article = get_object_or_404(pk=pk)
+    article = get_object_or_404(Article, pk=pk)
     if article.author == request.user:
         if request.method == "POST":
             form = ArticleForm(request.POST, instance=article)
