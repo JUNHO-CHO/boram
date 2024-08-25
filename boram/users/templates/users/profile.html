@@ -6,11 +6,15 @@
 {% block content %}
 
 <div>
-
+    {% if member.image %}
     <img src="{{ member.image.url }}" style="width: 150px; object-fit: cover;" class="rounded-circle">
+    {% else %}
+    <img src="https://teamsparta.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F83c75a39-3aba-4ba4-a792-7aefe4b07895%2F91b523d3-e116-4d12-a8c9-401ea4b12c4a%2Fuser.png?table=block&id=7d771e5a-5901-42b4-9532-f42f6bf86e5d&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=260&userId=&cache=v2"
+    style="width: 150px; object-fit: cover;" class="rounded-circle">
+    {% endif %}
     <h2 style="padding: 0 0 0 20; margin-left: 30PX;">{{ member.username }}</h2>
     <p>
-        팔로워 {{ member.followers.count }}명 /  팔로잉 {{ member.followings.count }}명
+        팔로워 {{ member.followers.count }}명 / 팔로잉 {{ member.followings.count }}명
     </p>
 </div>
 
