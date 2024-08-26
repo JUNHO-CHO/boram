@@ -20,6 +20,7 @@
             .forEach(toastNode => new Toast(toastNode))
     </script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1.2">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-icons.min.css' %}?v=1.2">
     <link rel="stylesheet" href="{% static 'css/sign-in.css' %}?v=1.2">
     <link rel="stylesheet" href="{% static 'assets/dist/css/bootstrap.min.css' %}?v=1.2">
     <link rel="stylesheet" href="{% static 'assets/js/color-modes.js' %}?v=1.2">
@@ -301,7 +302,7 @@
                 <a href="#"
                     class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="{% static '../media/images/누끼3.png' %}" alt="" style="width: 37px;">
+                    <img src="{% static '누끼3.png' %}" alt="" style="width: 37px;">
                 </a>
                 <ul class="dropdown-menu text-small shadow" style="">
                     <li class="dropdown-item" aria-current="page" style="pointer-events:none;">Overview</li>
@@ -355,7 +356,7 @@
                         <li><a class="dropdown-item" href="{% url 'users:profile' request.user.username %}">My
                                 Page</a></li>
                         <li><a class="dropdown-item" href="{% url 'accounts:update' %}">Settings</a></li>
-                        <li><a class="dropdown-item" href="">Profile</a></li>
+                        <!-- <li><a class="dropdown-item" href="">Profile</a></li> -->
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -409,7 +410,7 @@
             <div class="col-md-4 d-flex align-items-center">
                 <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
                     <svg class="bi" width="30" height="24">
-                        <img src="{% static '../media/images/누끼3.png' %}" alt="" style="width: 37px;">
+                        <img src="{% static '누끼3.png' %}" alt="" style="width: 37px;">
                     </svg>
                 </a>
                 <span class="mb-3 mb-md-0 text-body-secondary">© 2024 boram, Inc</span>

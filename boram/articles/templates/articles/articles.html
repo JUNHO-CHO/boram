@@ -11,8 +11,6 @@
         gap: 10px;
         /* 요소들 간의 간격 */
     }
-
-    
 </style>
 {% endblock titlename %}
 
@@ -47,30 +45,73 @@
                         </svg>
                         {% endif %}
                         <div class="card-body">
-                            <div>
-                                <p class="card-text unbr" style="display: inline-block;">{{ article.title }}</p>
-                            <p class="card-text unbr" style="display: inline-block;">test</p>
+                            <!-- <div class="container text-center">
+                                <div class="row">
+                                    <div class="col-9">
+                                        <div class="row row-cols-auto">
+                                            <div class="col">{{ article.title }} |</div>
+                                            <div class="col">{{ article.author}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">col-4</div>
+                                </div>
+                            </div> -->
+                            <div class="container text-center">
+                                <div class="row row-cols-auto">
+                                    <div class="col" style="padding: 0px 4px 0px 4px;">{{ article.title }} |</div>
+                                    <div class="col" style="padding: 0px 4px 0px 4px;">{{ article.author}}</div>
+                                    <div class="col-auto ms-auto">
+                                        <div class="dropdown" onclick="event.stopPropagation();">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16"
+                                        onclick="event.stopPropagation();" class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+                                        </svg>
+                                            <ul class="dropdown-menu text-small shadow" style="">
+                                                {% if request.user.id == article.author.id %}
+                                                <li><a class="dropdown-item" href="{% url 'articles:update' article.pk %}">Edit</a></li>
+                                                <li><a class="dropdown-item" href="{% url 'articles:update' article.pk %}">Delete</a></li>
+                                                <li>
+                                                    <hr class="dropdown-divider">
+                                                </li>
+                                                {% endif %}
+                                                <li><a class="dropdown-item" href="#">숨기기</a></li>
+                                                <li><a class="dropdown-item" href="#">신고하기</a></li>
+                                                <li>
+                                                    <hr class="dropdown-divider">
+                                                </li>
+                                                <li><a class="dropdown-item" href="#">닫기</a></li>
+                                            </ul>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="row">
+    
+                                </div>
                             </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    {% if request.user.id == article.author.id %}
-                                    <button type="button" class="btn btn-sm" style="padding: 4px;"
+                                    <!-- if 로그인 유저가 게시자이면 -->
+                                    <!-- <button type="button" class="btn btn-sm" style="padding: 4px;"
                                         onclick=" event.stopPropagation(); window.location.href='{% url 'articles:update' article.pk %}'">Edit</button>
                                     <button type="button" class="btn btn-sm" style="padding: 4px;"
                                         onclick="event.stopPropagation();" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal{{article.pk}}">Delete</button>
-
+                                        data-bs-target="#exampleModal{{article.pk}}">Delete</button> -->
+                                    
                                     <!-- data-bs-target을 부름 exampleModal{{article.pk}}을 튀어나오게함 -->
-                                    {% endif %}
+                                    
                                     {% if request.user %}
-                                    <form action="{% url 'articles:like' article.pk %}" method="POST"
-                                        class="btn" style="padding: 5px 0px 0px 0px; text-align: center;">
+                                    <form action="{% url 'articles:like' article.pk %}" method="POST" class="btn"
+                                        style="padding: 5px 0px 0px 0px; text-align: center;">
                                         {% csrf_token %}
                                         {% if user in article.like_users.all %}
-                                        <button type="submit" onclick="event.stopPropagation();" style="width: 40px; margin-bottom: 5px; padding: 3px;"
+                                        <button type="submit" onclick="event.stopPropagation();"
+                                            style="width: 40px; margin-bottom: 5px; padding: 3px;"
                                             class="btn btn-sum text-danger"><i class="fa-solid fa-heart"></i></button>
                                         {% else %}
-                                        <button type="submit" onclick="event.stopPropagation();" style="width: 40px; margin-bottom: 5px; padding: 3px;"
+                                        <button type="submit" onclick="event.stopPropagation();"
+                                            style="width: 40px; margin-bottom: 5px; padding: 3px;"
                                             class="btn btn-sum text-danger"><i class="fa-regular fa-heart"></i></button>
                                         {% endif %}
                                         <div style="display: inline-block;">{{article.like_users.all.count}}</div>
@@ -80,7 +121,7 @@
                                         <button class="btn btn-sum text-danger"><i
                                                 class="fa-solid fa-heart"></i></button>
                                     </div>
-
+    
                                     {% endif %}
                                 </div>
                                 <small class="text-body-secondary">{{ article.time_dif }}</small>
@@ -112,7 +153,7 @@
                     </div>
                 </div>
                 {% endfor %}
-
+    
             </div>
         </div>
     </div>

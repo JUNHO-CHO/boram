@@ -60,8 +60,6 @@ def update(request, pk):
             form = ArticleForm(instance=article)
     else:
         return redirect("articles:articles")
-
-
     context = {
         "form": form,
         "article": article,
