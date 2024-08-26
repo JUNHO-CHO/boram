@@ -9,12 +9,12 @@ class Article(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField(upload_to="images/", blank=True)
+    
+    like = models.PositiveIntegerField(default=0)
+    search = models.IntegerField(default=0)
+    
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="articles")
-    like_users = models.ManyToManyField(
-        settings.AUTH_USER_MODEL, related_name="like_articles"
-    )
-
     like_users = models.ManyToManyField(
         settings.AUTH_USER_MODEL, related_name="like_articles"
     )
