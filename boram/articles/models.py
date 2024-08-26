@@ -9,10 +9,13 @@ class Article(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField(upload_to="images/", blank=True)
-    likes = models.IntegerField(default=0) # 찜한 횟수
 
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="articles")
+
+    like_users = models.ManyToManyField(
+        settings.AUTH_USER_MODEL, related_name="like_articles"
+    )
 
     @classmethod
     def get_articles_with_comments(cls):
