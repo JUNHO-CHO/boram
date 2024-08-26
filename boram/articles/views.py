@@ -13,12 +13,19 @@ def index(request):
     return render(request, "articles/index.html")
 
 # 글 목록 페이지
-
-
 def articles(request):
-    articles = Article.objects.all().order_by("-created_at")
+    sort_by = request.GET.get('sort', 'latest')  # 기본값은 최신순
+
+    if sort_by == 'oldest':
+        articles = Article.objects.all().order_by("created_at")  # 오래된순
+    elif sort_by == 'popular':
+        articles = Article.objects.all().annotate(like_count=Count('likes')).order_by('-like_count', '-created_at')  # 인기도순
+    else:
+        articles = Article.objects.all().order_by("-created_at")  # 최신순
+
     context = {
         "articles": articles,
+        "sort_by": sort_by,
     }
     return render(request, "articles/articles.html", context)
 
