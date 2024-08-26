@@ -4,21 +4,26 @@ from .forms import ArticleForm, CommentForm
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods, require_POST
-
-
-# Create your views here.
+from django.db.models import Count
 
 
 def index(request):
     return render(request, "articles/index.html")
 
 # 글 목록 페이지
-
-
 def articles(request):
-    articles = Article.objects.all().order_by("-created_at")
+    sort_by = request.GET.get('sort', 'latest')  # 기본값은 최신순
+
+    if sort_by == 'oldest':
+        articles = Article.objects.all().order_by("created_at")  # 오래된순
+    elif sort_by == 'popular':
+        articles = Article.objects.all().annotate(like_count=Count('likes')).order_by('-like_count', '-created_at')  # 인기도순
+    else:
+        articles = Article.objects.all().order_by("-created_at")  # 최신순
+
     context = {
         "articles": articles,
+        "sort_by": sort_by,
     }
     return render(request, "articles/articles.html", context)
 
@@ -74,16 +79,20 @@ def delete(request, pk):
     article = Article.objects.get(pk=pk)
     if request.user.is_authenticated:
         if article.author == request.user:
-            article = get_object_or_404(Article, pk=pk)
             article.delete()
     # 글 삭제하면 목록으로 돌아감
     return redirect("articles:articles")
 
-@login_required
 @require_POST
 def like(request, pk):
-    
-    return redirect("articles:articles")
+    if request.user.is_authenticated:
+        article = get_object_or_404(Article, pk=pk)
+        if article.like_users.filter(pk=request.user.pk).exists():
+            article.like_users.remove(request.user) # 좋아요 취소
+        else:
+            article.like_users.add(request.user) #좋아요
+        return redirect("articles:articles") 
+    return redirect("accounts:login") # 로그인 안했으면 로그인페이지로 돌아감
 
 @require_POST
 def comment_create(request, pk):

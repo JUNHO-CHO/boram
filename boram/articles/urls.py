@@ -7,6 +7,7 @@ urlpatterns = [
     path("index/", views.index, name = "index"),
     # 글 목록 페이지
     path("",views.articles, name="articles"),
+    # 게시판 글 최신순, 오래된 순 정렬
     # 상세 페이지
     path("<int:pk>/", views.article_detail, name="article_detail"),
     # 글 작성 페이지

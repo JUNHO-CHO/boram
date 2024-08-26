@@ -2,6 +2,7 @@
 
 {% block titlename %}
 <title>Articles</title>
+
 <style>
     form {
         display: flex;
@@ -17,6 +18,15 @@
 {% block content %}
 <div>
     <h2 style="display: inline;">Articles</h2>
+    
+    <!-- 정렬 옵션 추가 -->
+    <h1>게시물 목록</h1>
+    <ul>
+        <li><a href="?sort=latest">최신순</a></li>
+        <li><a href="?sort=oldest">오래된순</a></li>
+        <li><a href="?sort=popular">인기도순</a></li>
+    </ul>
+
     {% if request.user.is_authenticated %}
     <a href="{% url 'articles:create' %}"><button class="btn btn-sm">글 쓰러 가기</button></a><br><br>
     {% else %}

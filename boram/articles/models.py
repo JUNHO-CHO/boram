@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.conf import settings
+from django.db.models import Count
 
 class Article(models.Model):
     title = models.CharField(max_length=50)
@@ -13,6 +14,14 @@ class Article(models.Model):
     like_users = models.ManyToManyField(
         settings.AUTH_USER_MODEL, related_name="like_articles"
     )
+
+    like_users = models.ManyToManyField(
+        settings.AUTH_USER_MODEL, related_name="like_articles"
+    )
+
+    @classmethod
+    def get_articles_with_comments(cls):
+        return cls.objects.annotate(num_comments=Count('comments')).order_by('-num_comments')
 
     def __str__(self):
         return self.title
