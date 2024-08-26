@@ -100,3 +100,8 @@ body, html {
 p > textarea {
     width: 70%;
 }
+
+/* article/index_img */
+img {
+    width: 200pk;
+}

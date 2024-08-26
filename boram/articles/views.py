@@ -37,7 +37,7 @@ def create(request):
             article = form.save(commit=False)
             article.author = request.user
             article = form.save()
-            return redirect("articles:article_detail", article.pk)
+            return redirect("articles:article_detail", article.id)
     else:
         form = ArticleForm()
 
