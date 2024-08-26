@@ -2,14 +2,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Article Detail</h1><br>
+    <h1>Article Detail</h1><br>
 
-<h2>제목: {{ article.title }}</h2><br>
+    <h2>제목: {{ article.title }}</h2><br>
+    <p>작성자: {{ article.author.username }}</p>
 
-<p>내용: {{ article.content}}</p><br><br>
+    {% if article.image %}
+        <img src="{{ article.image.url }}">
+    {% endif %}
 
-<p>작성일시: {{ article.created_at }}</p>
-<p>수정일시: {{ article.updated_at }}</p>
+
+    <p>내용: {{ article.content}}</p><br><br>
+
+    <p>작성일시: {{ article.created_at }}</p>
+    <p>수정일시: {{ article.updated_at }}</p>
 
 <!-- 목록 버튼 -->
 <a href="{% url 'articles:articles' %}">
