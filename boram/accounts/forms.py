@@ -11,7 +11,7 @@ from django.urls import reverse
 
 
 class CustomLoginForm(AuthenticationForm):
-    username = UsernameField(widget=forms.TextInput(attrs={"autofocus": True, 'class': 'form-control'}))
+    username = UsernameField(widget=forms.TextInput(attrs={"autofocus": True, 'class': 'form-control', 'placeholder':"Username"}))
     password = forms.CharField(
         label=_("Password"),
         strip=False,

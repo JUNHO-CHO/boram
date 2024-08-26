@@ -81,8 +81,10 @@ def delete(request, pk):
     # 글 삭제하면 목록으로 돌아감
     return redirect("articles:articles")
 
-
+@login_required
+@require_POST
 def like(request, pk):
+    
     return redirect("articles:articles")
 
 @require_POST

@@ -2,10 +2,6 @@
 
 
 
-{% block titlename %}
-
-{% block header %}
-{% endblock header %}
 <title>login</title>
 <style>
     p>label {
@@ -521,9 +517,10 @@
         width: 50%;
     }
 </style>
-{% endblock titlename %}
 {% block content %}
+{% block header %}
 
+{% endblock header %}
 
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <!-- <main class="form-signin w-100 m-auto">
@@ -536,19 +533,25 @@
             <button type="submit">로그인</button>
         </form>
     </main> -->
+    <!-- <img src="{# static '../media/images/누끼3.png' #}" alt="" style="width: 37px;"> -->
     <main class="form-signin w-100 m-auto">
         <form action="" method="POST">
             {% csrf_token %}
-            <img class="mb-4" src="../../../../static/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                <svg class="bi" width="30" height="24">
+                    <img class="mb-4" src="../../../../static/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+                </svg>
+            </a>
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
             <div class="form-floating">
                 <input type="text" name="username" autofocus="" class="form-control" autocapitalize="none"
-                    autocomplete="username" maxlength="150" required="" id="id_username">
+                    style="border-bottom-left-radius: 0; border-bottom-right-radius: 0; margin-bottom: -1px;"
+                    autocomplete="username" maxlength="150" required="" id="id_username floatingInput"  placeholder="name@example.com">
                 <label for="floatingInput">User name</label>
             </div>
             <div class="form-floating">
-                <input type="password" name="password" autocomplete="current-password" class="form-control" required=""
+                <input type="password" name="password" autocomplete="current-password" class="form-control" required="" placeholder="Password"
                     id="id_password">
                 <label for="floatingPassword">Password</label>
             </div>
@@ -562,7 +565,11 @@
             <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
             <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
         </form>
+        <div class="form-floating">
+
+        </div>
     </main>
+    
 </body>
 {% endblock content %}
 

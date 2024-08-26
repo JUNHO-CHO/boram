@@ -12,40 +12,7 @@
         /* 요소들 간의 간격 */
     }
 
-    .container {
-        --bs-primary-rgb: 13, 110, 253;
-        --bs-secondary-rgb: 108, 117, 125;
-        --bs-success-rgb: 25, 135, 84;
-        --bs-info-rgb: 13, 202, 240;
-        --bs-warning-rgb: 255, 193, 7;
-        --bs-danger-rgb: 220, 53, 69;
-        --bs-light-rgb: 248, 249, 250;
-        --bs-dark-rgb: 33, 37, 41;
-        --bs-white-rgb: 255, 255, 255;
-        --bs-black-rgb: 0, 0, 0;
-        --bs-breakpoint-sm: 576px;
-        --bs-breakpoint-md: 768px;
-        --bs-breakpoint-lg: 992px;
-        --bs-breakpoint-xl: 1500px;
-        --bs-breakpoint-xxl: 1700px;
-        font-family: var(--bs-body-font-family);
-        font-size: var(--bs-body-font-size);
-        font-weight: var(--bs-body-font-weight);
-        line-height: var(--bs-body-line-height);
-        color: var(--bs-body-color);
-        text-align: var(--bs-body-text-align);
-        -webkit-text-size-adjust: 100%;
-        -webkit-tap-highlight-color: transparent;
-        box-sizing: border-box;
-        --bs-gutter-x: 1.5rem;
-        --bs-gutter-y: 0;
-        width: 100%;
-        padding-right: calc(var(--bs-gutter-x) * .5);
-        padding-left: calc(var(--bs-gutter-x) * .5);
-        margin-right: auto;
-        margin-left: auto;
-        max-width: 1560px;
-    }
+    
 </style>
 {% endblock titlename %}
 
@@ -61,7 +28,7 @@
     <div class="album py-5 bg-body-tertiary">
         <div class="container">
             <div
-                class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 g-2 g-1g-3">
+                class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-2 g-1g-3">
                 <!-- <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"> -->
                 {% for article in articles %}
                 <div class="col"
@@ -80,30 +47,41 @@
                         </svg>
                         {% endif %}
                         <div class="card-body">
-                            <p class="card-text unbr" style="display: inline-block;">{{ article.title }}</p>
+                            <div>
+                                <p class="card-text unbr" style="display: inline-block;">{{ article.title }}</p>
                             <p class="card-text unbr" style="display: inline-block;">test</p>
+                            </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     {% if request.user.id == article.author.id %}
-                                    <button type="button" class="btn btn-sm btn-outline-secondary"
+                                    <button type="button" class="btn btn-sm" style="padding: 4px;"
                                         onclick=" event.stopPropagation(); window.location.href='{% url 'articles:update' article.pk %}'">Edit</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary"
+                                    <button type="button" class="btn btn-sm" style="padding: 4px;"
                                         onclick="event.stopPropagation();" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal{{article.pk}}">Delete</button>
 
                                     <!-- data-bs-target을 부름 exampleModal{{article.pk}}을 튀어나오게함 -->
                                     {% endif %}
+                                    {% if request.user %}
                                     <form action="{% url 'articles:like' article.pk %}" method="POST"
-                                        class="btn btn-outline-secondary" style="padding: 0%;">
+                                        class="btn" style="padding: 5px 0px 0px 0px; text-align: center;">
                                         {% csrf_token %}
                                         {% if user in article.like_users.all %}
-                                        <button type="submit" onclick="event.stopPropagation();"
+                                        <button type="submit" onclick="event.stopPropagation();" style="width: 40px; margin-bottom: 5px; padding: 3px;"
                                             class="btn btn-sum text-danger"><i class="fa-solid fa-heart"></i></button>
                                         {% else %}
-                                        <button type="submit" onclick="event.stopPropagation();"
+                                        <button type="submit" onclick="event.stopPropagation();" style="width: 40px; margin-bottom: 5px; padding: 3px;"
                                             class="btn btn-sum text-danger"><i class="fa-regular fa-heart"></i></button>
                                         {% endif %}
+                                        <div style="display: inline-block;">{{article.like_users.all.count}}</div>
                                     </form>
+                                    {% else %}
+                                    <div class="btn btn-outline-secondary">
+                                        <button class="btn btn-sum text-danger"><i
+                                                class="fa-solid fa-heart"></i></button>
+                                    </div>
+
+                                    {% endif %}
                                 </div>
                                 <small class="text-body-secondary">{{ article.time_dif }}</small>
                             </div>
