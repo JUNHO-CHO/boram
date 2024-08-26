@@ -1,18 +1,37 @@
-<!-- new.html 에서  create.html 파일 이름만 바뀜-->
-<!-- 글 작성 페이지 -->
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>New Article</h1>
+<h2 style="text-align: center;">상품 등록</h2>
+<hr>
 
-<form action="{% url 'articles:create' %}" method="POST">
+<form action="{% url 'articles:create' %}" method="POST" enctype="multipart/form-data" style="max-width: 600px; margin: 0 auto;">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">저장</button>
+
+    <div class="mb-3">
+        <label for="{{ form.title.id_for_label }}" class="form-label fs-3">{{ form.title.label }}</label>
+        {{ form.title }}
+    </div>
+
+    <div class="mb-3">
+        <label for="{{ form.content.id_for_label }}" class="form-label fs-4">{{ form.content.label }}</label>
+        {{ form.content }}
+    </div>
+
+    <div class="mb-3">
+        <label for="{{ form.image.id_for_label }}" class="form-label fs-4">{{ form.image.label }}</label>
+        {{ form.image }}
+    </div>
+
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-secondary" style="width: 100px;">저장</button>
+    </div>
 </form>
 
-<a href="{% url 'articles:articles' %}">
-    <button>목록</button>
-</a>
+<br>
+<div style="text-align: right;">
+    <a href="{% url 'articles:articles' %}">
+        <button type="button" class="btn btn-secondary">목록</button>
+    </a>
+</div>
 
 {% endblock content %}
