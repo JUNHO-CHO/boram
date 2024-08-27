@@ -12,7 +12,7 @@ class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
         fields = "__all__"
-        exclude = ('created_at', 'updated_at', "author", "like_users")
+        exclude = ('created_at', 'updated_at', "author", "like_users", "like", "search")
         widgets = {
             'title': forms.TextInput(attrs={
                 'class': 'form-control',
