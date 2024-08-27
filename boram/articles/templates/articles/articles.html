@@ -84,8 +84,12 @@
                                                 {% if request.user.id == article.author.id %}
                                                 <li><a class="dropdown-item"
                                                         href="{% url 'articles:update' article.pk %}">Edit</a></li>
-                                                <li><a class="dropdown-item"
-                                                        href="{% url 'articles:update' article.pk %}">Delete</a></li>
+                                                <li>
+                                                    <form action="{% url 'articles:delete' article.pk %}" method="post">
+                                                        {% csrf_token %}
+                                                        <button type="submit" class="dropdown-item">Delete</button>
+                                                    </form>
+                                                </li>
                                                 <li>
                                                     <hr class="dropdown-divider">
                                                 </li>
@@ -133,14 +137,6 @@
                                         <div style="display: inline-block;">{{article.like_users.all.count}}</div>
 
                                     </form>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                        class="bi bi-eye-fill" viewBox="0 0 16 16" style="margin: 14px 5px 0px 12px;">
-                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
-                                        <path
-                                            d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7" />
-                                    </svg>
-                                    <div style="display: inline-block; margin: 9.5px 5px 0px 3px;">{{article.search}}
-                                    </div>
                                     {% else %}
                                     <form action="" method="POST" class="btn"
                                         style="padding: 5px 0px 0px 0px; text-align: center;">
@@ -152,6 +148,15 @@
 
                                     </form>
                                     {% endif %}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-eye-fill" viewBox="0 0 16 16" style="margin: 14px 5px 0px 12px;">
+                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
+                                        <path
+                                            d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7" />
+                                    </svg>
+                                    <div style="display: inline-block; margin: 9.5px 5px 0px 3px;">
+                                        {{article.search}}
+                                    </div>
                                 </div>
                                 <small class="text-body-secondary">{{ article.time_dif }}</small>
                             </div>

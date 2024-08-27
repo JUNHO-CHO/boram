@@ -25,8 +25,8 @@ def login(request):
         form = CustomLoginForm(data=request.POST)
         if form.is_valid():
             auth_login(request, form.get_user())
-            netx_url = request.GET.get("next") or "index"
-            return redirect("articles:index")
+            netx_url = request.GET.get("next") or "articles"
+            return redirect("articles:articles")
     else:
         form = CustomLoginForm()
     context = {"form": form}
@@ -37,7 +37,7 @@ def login(request):
 def logout(request):
     if request.user.is_authenticated:
         auth_logout(request)
-    return redirect("articles:index")
+    return redirect("articles:articles")
 
 
 @require_http_methods(['GET','POST'])
@@ -47,7 +47,7 @@ def signup(request):
         if form. is_valid():
             user=form.save()
             auth_login(request, user)
-            return redirect("articles:index")
+            return redirect("articles:articles")
     else:
         form = CustomUserCreationForm()
     context = {"form":form}
@@ -61,7 +61,7 @@ def delete(request):
         if form.is_valid():
             request.user.delete()
             auth_logout(request)
-            return redirect("articles:index")
+            return redirect("articles:articles")
     else:
         form = PasswordConfirmationForm()
     context = {"form":form}
@@ -74,7 +74,7 @@ def update(request):
         form = CustomUserChangeForm(request.POST, request.FILES, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect("articles:index")
+            return redirect("articles:articles")
     else:
         form = CustomUserChangeForm(instance=request.user)
     context = {"form": form}
@@ -87,7 +87,7 @@ def change_password(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
-            return redirect("articles:index")
+            return redirect("articles:articles")
     else:
         form = PasswordChangeForm(request.user)
     context = {"form": form}
