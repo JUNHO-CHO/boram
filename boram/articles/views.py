@@ -38,10 +38,12 @@ def article_detail(request, pk):
 def create(request):
     if request.method == "POST":
         form = ArticleForm(request.POST, request.FILES)
+        print("post")
         if form.is_valid():
             article = form.save(commit=False)
             article.author = request.user
             article = form.save()
+            print("created")
             return redirect("articles:article_detail", article.id)
     else:
         form = ArticleForm()
