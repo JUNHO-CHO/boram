@@ -1,17 +1,16 @@
 # 🪷 BORAM 🪷
 ----
 # ⏰ Development Period
-----
 - 2024.08.14 ~ 2024.08.28
-
-# 👩🏻‍💻 Project Introduction
 ----
+# 👩🏻‍💻 Project Introduction
+
 Team assignments were carried out through the Sparta Coding Club Bootcamp.
 It implemented a basic second-hand transaction web using Django and did not implement the actual purchased function and regional classification.
 Users can participate in the post by expressing their interest through 'like' and 'follow' when they post a photo of a used product's transaction.
-
-# 💻 Development Environment
 ----
+# 💻 Development Environment
+
 Programming Language: python 3.10
 Web Framework: Django 4.2
 Database: SQLite
