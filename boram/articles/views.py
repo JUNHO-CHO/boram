@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Article, Comment
 from .forms import ArticleForm, CommentForm
+from accounts.forms import CustomUserChangeForm
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods, require_POST
@@ -50,19 +51,18 @@ def create(request):
     return render(request, "articles/create.html", context)
 
 # 글 수정페이지
-
 @login_required
 @require_http_methods(["GET", "POST"])
 def update(request, pk):
     article = get_object_or_404(Article, pk=pk)
     if article.author == request.user:
         if request.method == "POST":
-            form = ArticleForm(request.POST, instance=article)
+            form = CustomUserChangeForm(request.POST, request.FILES, instance=request.user)
             if form.is_valid():
                 article = form.save()
                 return redirect("articles:article_detail", article.pk)
         else:
-            form = ArticleForm(instance=article)
+            form = CustomUserChangeForm(instance=request.user)
     else:
         return redirect("articles:articles")
     context = {

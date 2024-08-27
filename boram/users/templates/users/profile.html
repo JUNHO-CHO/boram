@@ -7,7 +7,7 @@
 {% block content %}
 <div>
     {% if member.image %}
-        <img src="{{ member.image.url }}" style="width: 150px; object-fit: cover;" class="rounded-circle">
+        <img src="{{ member.image.url }}" style="width: 150px; height: 150px; object-fit: cover;" class="rounded-circle">
     {% else %}
         <img src="/media/images/default.png" style="width: 150px; object-fit: cover;" class="rounded-circle">
     {% endif %}
