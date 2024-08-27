@@ -18,7 +18,7 @@ def articles(request):
     if sort_by == 'oldest':
         articles = Article.objects.all().order_by("created_at")  # 오래된순
     elif sort_by == 'popular':
-        articles = Article.objects.all().annotate(like_count=Count('likes')).order_by('-like_count', '-created_at')  # 인기도순
+        articles = Article.objects.all().order_by('-like', '-search')  # 인기도순
     else:
         articles = Article.objects.all().order_by("-created_at")  # 최신순
 
@@ -32,6 +32,8 @@ def articles(request):
 # 글 상세페이지
 def article_detail(request, pk):
     article = Article.objects.get(pk=pk)
+    article.search += 1
+    article.save()
     context = {"article": article, }
     return render(request, "articles/article_detail.html", context)
 

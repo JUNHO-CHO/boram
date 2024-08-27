@@ -2,6 +2,9 @@ from django.db import models
 from django.utils import timezone
 from django.conf import settings
 from django.db.models import Count
+from django.db.models.signals import m2m_changed
+from django.dispatch import receiver
+
 
 class Article(models.Model):
     title = models.CharField(max_length=50)
@@ -46,6 +49,16 @@ class Article(models.Model):
             return f'{second//60}분 전'
         else:
             return f'{second}초 전'
+
+
+
+@receiver(m2m_changed, sender=Article.like_users.through)
+def update_like_count(sender, instance, action, **kwargs):
+    if action in ['post_add', 'post_remove', 'post_clear']:
+        instance.like = instance.like_users.count()
+        instance.save()
+
+
 
 class Comment(models.Model):
     article = models.ForeignKey(
