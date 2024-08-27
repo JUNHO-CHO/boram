@@ -11,9 +11,8 @@
     <br>
 
     <h3>상품 설명</h3>
-    <div
-        style="width: 100%; max-width: 500px; height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; text-align: left; margin: 0 auto; border-radius: 8px;">
-        {{ article.content }}
+    <div style="width: 100%; max-width: 500px; height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; text-align: left; margin: 0 auto; border-radius: 8px;">
+        {{ article.content|linebreaksbr }}
     </div>
     <br>
     {% if article.image %}
