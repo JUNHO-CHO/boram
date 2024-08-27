@@ -33,7 +33,7 @@
         return urlParams.get(parameterName);
     }
 
-    window.onload = function() {
+    window.onload = function () {
         const sortOrder = getQueryParameter('sort');
         const select = document.getElementById("inputState");
 
@@ -41,6 +41,11 @@
             select.value = `?sort=${sortOrder}`;
         }
     };
+    function getUsername(username) {
+        // username을 가져오는 로직이 필요합니다.
+        // 예시: username이 전역 변수에 저장되어 있는 경우
+        return username;  // 실제로는 동적으로 할당된 username이어야 합니다.
+    }
 </script>
 {% endblock titlename %}
 
@@ -153,9 +158,8 @@
                             <div class="container text-center" style="padding: 10px 0px 10px 0px;">
                                 <div class="row row-cols-auto">
                                     <div class="col" style="padding: 0px 4px 0px 8px;"> </div>
-                                    <form action=""
-                                        style="height: 25px; padding: 0px 0px 0px 0px;"
-                                        onclick="event.stopPropagation();">
+                                    <form action="" style="height: 25px; padding: 0px 0px 0px 0px;"
+                                        onclick="event.stopPropagation(); location.href='/users/profile/' + getUsername('{{article.author.username}}')">
                                         <div class="col" style="padding: 0px 4px 0px 4px;">
                                             <img src="{{ article.author.image.url }}" alt="mdo" height="25"
                                                 class="rounded-circle" style="width: 25px;  object-fit: cover;">
