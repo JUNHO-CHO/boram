@@ -1,19 +1,13 @@
 from django import forms
-from .models import Article, Comment
+from .models import Article, Comment, Tag
 
 
 class ArticleForm(forms.ModelForm):
-    # username = UsernameField(widget=forms.TextInput(attrs={"autofocus": True, 'class': 'form-control'}))
-    # password = forms.CharField(
-    #     label=_("Password"),
-    #     strip=False,
-    #     widget=forms.PasswordInput(attrs={"autocomplete": "current-password", 'class': 'form-control'}),
-    # )
+    tags = forms.CharField(required=False, help_text="쉼표로 태그를 구분하세요.")
     class Meta:
         model = Article
         fields = "__all__"
-        exclude = ('created_at', 'updated_at', "author",
-                    "like_users", "like", "search")
+        exclude = ('created_at', 'updated_at', "author", "like_users", "like", "search")
         widgets = {
             'title': forms.TextInput(attrs={
                 'class': 'form-control',
@@ -40,7 +34,18 @@ class ArticleForm(forms.ModelForm):
             'content': "설명",
             'image': "상품 사진"
         }
-
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        tags_str = self.cleaned_data['tags']
+        if commit:
+            instance.save()
+            instance.tags.clear()
+            for tag_name in tags_str.split(','):
+                tag_name = tag_name.strip()
+                if tag_name:
+                    tag, created = Tag.objects.get_or_create(name=tag_name)
+                    instance.tags.add(tag)
+        return instance
 
 class CommentForm(forms.ModelForm):
     class Meta:

@@ -4,7 +4,8 @@
 <h2 style="text-align: center;">상품 등록</h2>
 <hr>
 
-<form action="{% url 'articles:create' %}" method="POST" enctype="multipart/form-data" enctype="multipart/form-data" style="max-width: 600px; margin: 0 auto;">
+<form action="{% url 'articles:create' %}" method="POST" enctype="multipart/form-data" enctype="multipart/form-data"
+    style="max-width: 600px; margin: 0 auto;">
     {% csrf_token %}
 
     <div class="mb-3">
@@ -25,6 +26,11 @@
     <div class="mb-3">
         <label for="{{ form.price.id_for_label }}" class="form-label fs-4">{{ form.price.label }}</label>
         {{ form.price }}
+    </div>
+
+    <div class="mb-3">
+        <label for="{{ form.tags.id_for_label }}" class="form-label fs-4">{{ form.tags.label }}</label>
+        {{ form.tags }}
     </div>
 
     <div style="text-align: center;">

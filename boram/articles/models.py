@@ -6,6 +6,12 @@ from django.db.models.signals import m2m_changed
 from django.dispatch import receiver
 
 
+class Tag(models.Model):
+    name = models.CharField(max_length=30, unique=True)
+
+    def __str__(self):
+        return self.name
+
 class Article(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField()
@@ -15,7 +21,7 @@ class Article(models.Model):
     price = models.IntegerField()
     like = models.PositiveIntegerField(default=0)
     search = models.IntegerField(default=0)
-
+    tags = models.ManyToManyField(Tag, related_name="articles", blank=True)
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="articles")
     like_users = models.ManyToManyField(
@@ -30,6 +36,8 @@ class Article(models.Model):
     @classmethod
     def get_articles_with_comments(cls):
         return cls.objects.annotate(num_comments=Count('comments')).order_by('-num_comments')
+
+    
 
     def __str__(self):
         return self.title
@@ -87,3 +95,4 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.content
+

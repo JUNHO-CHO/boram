@@ -19,7 +19,15 @@
     {% if article.image %}
         <img src="{{ article.image.url }}">
     {% endif %}
-    <br><br>
+
+    <!-- 해시태그 표시 부분 -->
+    <p>태그:
+        {% for tag in article.tags.all %}
+            <a href="{% url 'articles:articles_by_tag' tag.name %}">#{{ tag.name }}</a>
+            {% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </p><br>
+
     <p>작성일시: {{ article.created_at }}</p>
 </div>
 
