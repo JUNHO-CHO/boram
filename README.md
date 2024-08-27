@@ -25,6 +25,6 @@ Database: Django ORM, SQLite
 
 
 ----
-#📄ERD
+# 📄ERD
 ![ERD](https://github.com/user-attachments/assets/00db2583-9f10-4420-88e5-e1baefadeadb)
 
