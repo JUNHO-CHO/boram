@@ -243,15 +243,17 @@
                 auto: '#circle-half'
             };
             const themeIcon = document.getElementById('theme-icon');
+            themeIcon.setAttribute('xlink:href', iconMap[theme]);
+            themeIcon.setAttribute('href', iconMap[theme]);
 
-            // `xlink:href`와 `href` 모두 설정하여 브라우저 호환성 보장
-            themeIcon.setAttribute('xlink:href', iconMap[theme]); // 일부 브라우저에 필요
-            themeIcon.setAttribute('href', iconMap[theme]);       // 최신 브라우저에 필요
+            // 선택된 테마를 로컬 스토리지에 저장
+            localStorage.setItem('selectedTheme', theme);
         }
 
-        // 페이지 로드 시 기본 테마 설정 (예: light)
+        // 페이지 로드 시 로컬 스토리지에서 테마를 불러와서 적용
         document.addEventListener('DOMContentLoaded', function () {
-            setTheme('light');
+            const savedTheme = localStorage.getItem('selectedTheme') || 'light';
+            setTheme(savedTheme);
         });
     </script>
 

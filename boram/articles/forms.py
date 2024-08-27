@@ -12,7 +12,8 @@ class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
         fields = "__all__"
-        exclude = ('created_at', 'updated_at', "author", "like_users", "like", "search")
+        exclude = ('created_at', 'updated_at', "author",
+                    "like_users", "like", "search")
         widgets = {
             'title': forms.TextInput(attrs={
                 'class': 'form-control',
@@ -26,6 +27,10 @@ class ArticleForm(forms.ModelForm):
                 'style': 'width: 100%; height: 200px;'
             }),
             'image': forms.FileInput(attrs={
+                'class': 'form-control',
+                'style': 'width: 100%;'
+            }),
+            'price': forms.NumberInput(attrs={
                 'class': 'form-control',
                 'style': 'width: 100%;'
             }),
