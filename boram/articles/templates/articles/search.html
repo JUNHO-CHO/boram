@@ -1,33 +1,30 @@
 {% extends 'base.html' %}
 
 {% block titlename %}
-<title>Articles</title>
+<title>Search Results</title>
 <style>
     form {
         display: flex;
-        /* form 안의 요소들이 한 줄로 나열되도록 설정 */
         align-items: center;
-        /* 수직 중앙 정렬 */
         gap: 10px;
-        /* 요소들 간의 간격 */
     }
 </style>
 {% endblock titlename %}
 
 {% block content %}
 <div>
-    <h2 style="display: inline;">Articles</h2>
+    <h2 style="display: inline;">검색 결과</h2>
     {% if request.user.is_authenticated %}
     <a href="{% url 'articles:create' %}"><button class="btn btn-sm">글 쓰러 가기</button></a><br><br>
     {% else %}
     <a href="{% url 'articles:create' %}"><button class="btn btn-sm">로그인 하고 글 쓰러 가기</button></a><br><br>
     {% endif %}
+    <br><br>
 
     <div class="album py-5 bg-body-tertiary">
         <div class="container">
-            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-2 g-1g-3">
-                <!-- <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"> -->
-                {% for article in articles %}
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-2 g-3">
+                {% for article in results %}
                 <div class="col"
                     onclick="event.stopPropagation(); window.location.href='{% url 'articles:article_detail' article.pk %}'">
                     <div class="card shadow-sm" style="overflow: hidden;">
@@ -50,12 +47,10 @@
                                 <div class="btn-group">
                                     {% if request.user.id == article.author.id %}
                                     <button type="button" class="btn btn-sm btn-outline-secondary"
-                                        onclick=" event.stopPropagation(); window.location.href='{% url 'articles:update' article.pk %}'">Edit</button>
+                                        onclick="event.stopPropagation(); window.location.href='{% url 'articles:update' article.pk %}'">Edit</button>
                                     <button type="button" class="btn btn-sm btn-outline-secondary"
                                         onclick="event.stopPropagation();" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal{{article.pk}}">Delete</button>
-
-                                    <!-- data-bs-target을 부름 exampleModal{{article.pk}}을 튀어나오게함 -->
                                     {% endif %}
                                     <form action="{% url 'articles:like' article.pk %}" method="POST"
                                         class="btn btn-outline-secondary" style="padding: 0%;">
@@ -74,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- 모달창     id의 exampleModal을 부름     -->
+                <!-- Modal for delete confirmation -->
                 <div class="modal fade" id="exampleModal{{article.pk}}" tabindex="-1"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -98,11 +93,8 @@
                     </div>
                 </div>
                 {% endfor %}
-
             </div>
         </div>
     </div>
 </div>
-
-
 {% endblock content %}

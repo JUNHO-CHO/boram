@@ -36,3 +36,12 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = "__all__"
         exclude = ("article", "user")
+
+
+class SearchForm(forms.Form):
+    q = forms.CharField(
+        label='Search',
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+        })
+    )

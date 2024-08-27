@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Article, Comment
-from .forms import ArticleForm, CommentForm
+from django.db.models import Q
+from .forms import ArticleForm, CommentForm, SearchForm
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods, require_POST
@@ -86,6 +87,7 @@ def delete(request, pk):
 def like(request, pk):
     return redirect("articles:articles")
 
+
 @require_POST
 def comment_create(request, pk):
     article = get_object_or_404(Article, pk=pk)
@@ -105,3 +107,20 @@ def comment_delete(request, pk, comment_pk):
         if comment.user == request.user:
             comment.delete()
     return redirect("articles:article_detail", pk)
+
+
+def search(request):
+    form = SearchForm(request.GET)
+    results = []
+    if form.is_valid():
+        query = form.cleaned_data['q']
+        results = Article.objects.filter(
+            Q(title__icontains=query) |
+            Q(content__icontains=query) |
+            Q(author__username__icontains=query)
+        )
+    context = {
+        'form': form,
+        'results': results,
+    }
+    return render(request, "articles/search.html", context)
