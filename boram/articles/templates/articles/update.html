@@ -1,11 +1,12 @@
-<!-- edit.html 에서 update.html 로 파일 이름만 바뀜! -->
-<!-- 수정 페이지 -->
 {% extends 'base.html' %}
 
 {% block content %}
 <h2 style="text-align: center;">상품 정보 수정</h2>
 <hr>
+<h2 style="text-align: center;">상품 정보 수정</h2>
+<hr>
 
+<form action="{% url 'articles:update' article.pk %}" method="POST" enctype="multipart/form-data" style="max-width: 600px; margin: 0 auto;">
 <form action="{% url 'articles:update' article.pk %}" method="POST" enctype="multipart/form-data" style="max-width: 600px; margin: 0 auto;">
     {% csrf_token %}
 
@@ -21,6 +22,12 @@
 
     <div class="mb-3">
         <label for="{{ form.image.id_for_label }}" class="form-label fs-4">{{ form.image.label }}</label>
+        {% if article.image %}
+            <div style="text-align: center;">
+                <img src="{{ article.image.url }}" style="max-width: 300px; margin-bottom: 10px;">
+                <p>현재 파일: {{ article_image_name }}</p>
+            </div>
+        {% endif %}
         {{ form.image }}
     </div>
 

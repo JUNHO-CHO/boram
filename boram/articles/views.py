@@ -4,6 +4,7 @@ from .forms import ArticleForm, CommentForm
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods, require_POST
+import os
 from django.db.models import Count
 
 
@@ -64,11 +65,13 @@ def update(request, pk):
                 return redirect("articles:article_detail", article.pk)
         else:
             form = ArticleForm(instance=article)
+        article_image_name = os.path.basename(article.image.name) if article.image else None
     else:
         return redirect("articles:articles")
     context = {
         "form": form,
         "article": article,
+        "article_image_name": article_image_name,  # 파일명 변수 추가
     }
     return render(request, "articles/update.html", context)
 
