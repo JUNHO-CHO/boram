@@ -6,8 +6,11 @@
 {% block content %}
 
 <div>
-
-    <img src="{{ member.image.url }}" style="width: 150px; object-fit: cover;" class="rounded-circle">
+    {% if member.image %}
+        <img src="{{ member.image.url }}" style="width: 150px; object-fit: cover;" class="rounded-circle">
+    {% else %}
+        <img src="{{ MEDIA_URL }}images/default.png" style="width: 150px; object-fit: cover;" class="rounded-circle">
+    {% endif %}
     <h2 style="padding: 0 0 0 20; margin-left: 30PX;">{{ member.username }}</h2>
     <p>
         팔로워 {{ member.followers.count }}명 /  팔로잉 {{ member.followings.count }}명
