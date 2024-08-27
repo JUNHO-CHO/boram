@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Article, Comment
 from .forms import ArticleForm, CommentForm
-from accounts.forms import CustomUserChangeForm
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods, require_POST
@@ -57,12 +56,12 @@ def update(request, pk):
     article = get_object_or_404(Article, pk=pk)
     if article.author == request.user:
         if request.method == "POST":
-            form = CustomUserChangeForm(request.POST, request.FILES, instance=request.user)
+            form = ArticleForm(request.POST, request.FILES, instance=article)
             if form.is_valid():
                 article = form.save()
                 return redirect("articles:article_detail", article.pk)
         else:
-            form = CustomUserChangeForm(instance=request.user)
+            form = ArticleForm(instance=article)
     else:
         return redirect("articles:articles")
     context = {
