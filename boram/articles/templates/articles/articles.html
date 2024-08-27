@@ -5,11 +5,8 @@
 <style>
     form {
         display: flex;
-        /* form 안의 요소들이 한 줄로 나열되도록 설정 */
         align-items: center;
-        /* 수직 중앙 정렬 */
         gap: 10px;
-        /* 요소들 간의 간격 */
     }
 
     .container {
@@ -58,11 +55,15 @@
     <a href="{% url 'articles:create' %}"><button class="btn btn-sm">로그인 하고 글 쓰러 가기</button></a><br><br>
     {% endif %}
 
+    <!-- 해시태그 필터링 버튼 추가 -->
+    <div class="mb-3">
+        <a href="{% url 'articles:articles_by_tag' 'example-tag' %}" class="btn btn-outline-primary">Example Tag</a>
+        <!-- 추가적인 해시태그 링크를 여기에 추가하세요 -->
+    </div>
+
     <div class="album py-5 bg-body-tertiary">
         <div class="container">
-            <div
-                class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 g-2 g-1g-3">
-                <!-- <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"> -->
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 g-2 g-1g-3">
                 {% for article in articles %}
                 <div class="col"
                     onclick="event.stopPropagation(); window.location.href='{% url 'articles:article_detail' article.pk %}'">
@@ -75,8 +76,8 @@
                             xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
                             preserveAspectRatio="xMidYMid slice" focusable="false">
                             <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
-                                dy=".3em">Thumbnail</text>
+                            <rect width="100%" height="100%" fill="#55595c"></rect>
+                            <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
                         </svg>
                         {% endif %}
                         <div class="card-body">
@@ -90,8 +91,6 @@
                                     <button type="button" class="btn btn-sm btn-outline-secondary"
                                         onclick="event.stopPropagation();" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal{{article.pk}}">Delete</button>
-
-                                    <!-- data-bs-target을 부름 exampleModal{{article.pk}}을 튀어나오게함 -->
                                     {% endif %}
                                     <form action="{% url 'articles:like' article.pk %}" method="POST"
                                         class="btn btn-outline-secondary" style="padding: 0%;">
@@ -107,10 +106,17 @@
                                 </div>
                                 <small class="text-body-secondary">{{ article.time_dif }}</small>
                             </div>
+                            <!-- 해시태그 표시 부분 -->
+                            <p>Tags:
+                                {% for tag in article.tags.all %}
+                                    <a href="{% url 'articles:articles_by_tag' tag.name %}" class="badge bg-secondary">#{{ tag.name }}</a>
+                                    {% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
                         </div>
                     </div>
                 </div>
-                <!-- 모달창     id의 exampleModal을 부름     -->
+                <!-- 모달창 -->
                 <div class="modal fade" id="exampleModal{{article.pk}}" tabindex="-1"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -134,11 +140,8 @@
                     </div>
                 </div>
                 {% endfor %}
-
             </div>
         </div>
     </div>
 </div>
-
-
 {% endblock content %}

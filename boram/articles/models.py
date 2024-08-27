@@ -2,6 +2,12 @@ from django.db import models
 from django.utils import timezone
 from django.conf import settings
 
+class Tag(models.Model):
+    name = models.CharField(max_length=30, unique=True)
+
+    def __str__(self):
+        return self.name
+
 class Article(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField()
@@ -11,6 +17,8 @@ class Article(models.Model):
 
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="articles")
+
+    tags = models.ManyToManyField(Tag, related_name="articles", blank=True)
 
     def __str__(self):
         return self.title
@@ -49,3 +57,4 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.content
+

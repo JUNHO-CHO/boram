@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Article, Comment
+from .models import Article, Comment, Tag
 from .forms import ArticleForm, CommentForm
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -104,3 +104,9 @@ def comment_delete(request, pk, comment_pk):
         if comment.user == request.user:
             comment.delete()
     return redirect("articles:article_detail", pk)
+
+
+def articles_by_tag(request, tag_name):
+    tag = get_object_or_404(Tag, name=tag_name)
+    articles = Article.objects.filter(tags=tag)
+    return render(request, "articles/articles.html", {'articles': articles, 'tag_name': tag_name})

@@ -11,26 +11,33 @@
         <img src="{{ article.image.url }}">
     {% endif %}
 
+    <p>내용: {{ article.content }}</p><br><br>
 
-    <p>내용: {{ article.content}}</p><br><br>
+    <!-- 해시태그 표시 부분 -->
+    <p>태그:
+        {% for tag in article.tags.all %}
+            <a href="{% url 'articles:articles_by_tag' tag.name %}">#{{ tag.name }}</a>
+            {% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </p><br>
 
     <p>작성일시: {{ article.created_at }}</p>
     <p>수정일시: {{ article.updated_at }}</p>
 
-<!-- 목록 버튼 -->
-<a href="{% url 'articles:articles' %}">
-    <button>목록 보기</button>
-</a>
+    <!-- 목록 버튼 -->
+    <a href="{% url 'articles:articles' %}">
+        <button>목록 보기</button>
+    </a>
 
-<!-- 글 수정 버튼 -->
-<a href="{% url 'articles:update' article.pk %}">
-    <button>수정</button>
-</a>
+    <!-- 글 수정 버튼 -->
+    <a href="{% url 'articles:update' article.pk %}">
+        <button>수정</button>
+    </a>
 
-<!-- 글 삭제 버튼 -->
-<form action="{% url 'articles:delete' article.pk %}" method="POST">
-    {% csrf_token %}
-    <input type="submit" value="글 삭제">
-</form>
+    <!-- 글 삭제 버튼 -->
+    <form action="{% url 'articles:delete' article.pk %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="글 삭제">
+    </form>
 
 {% endblock content %}

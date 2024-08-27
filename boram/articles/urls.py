@@ -11,6 +11,8 @@ urlpatterns = [
     path("<int:pk>/", views.article_detail, name="article_detail"),
     # 글 작성 페이지
     path("create/",views.create, name="create"),
+    # 해시태그를 통한 글 목록 페이지
+    path("tag/<str:tag_name>/", views.articles_by_tag, name="articles_by_tag"),
     # 글 삭제
     path("<int:pk>/delete/", views.delete, name="delete"),
     path("<int:pk>/update/", views.update, name="update"),

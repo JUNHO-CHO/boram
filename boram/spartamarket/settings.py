@@ -28,6 +28,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# 브라우저가 닫힐 때 세션 만료 여부 (재로그인 하게끔)
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+
 # Application definition
 
 INSTALLED_APPS = [
