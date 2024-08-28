@@ -71,14 +71,14 @@ In addition, users can easily check their registered products by following their
 ----
 # 📌 Project Features
 
-### Account
+### Account [membership function]
 - Membership: Users can create an account with their ID and password.
 - Login: Existing users can log in with their registered ID and password.
 - Logout: Users can safely terminate their accounts by logging out.
 - Modifying membership information: Users can update their account information.
 - Withdrawal from membership: If the service is no longer available, the user can delete the account.
 
-### Article
+### Article [publishing function]
 - Writing and registering: Users can create and post descriptions of objects.
 - Revise text: You can modify the content of your registered text.
 - Delete text: Users can delete their posts.
@@ -93,7 +93,7 @@ In addition, users can easily check their registered products by following their
 - Member name: Search based on the author's name.
 - Hashtags: Search with hashtags.
 
-### User
+### User [User Features]
 - Profile page: Users can view their profiles.
 - Username—Displays the name of the user.
 - Subscription Date—Displays the subscription date for the user.
