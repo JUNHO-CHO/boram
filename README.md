@@ -1,17 +1,19 @@
-# 🪷 BORAM 🪷
+ # 🪷 BORAM 🪷
 
 # ⏰ Development Period
 - 2024.08.14 ~ 2024.08.28
 ----
 # 👩🏻‍💻 Project Introduction
 
-Team assignments were carried out through the Sparta Coding Club Bootcamp.
+Through the Sparta Coding Club Bootcamp, team assignments were carried out on the theme of Sparta Market.
 
 
-It implemented a basic second-hand transaction web using Django and did not implement the actual purchased function and regional classification.
+A basic second-hand transaction web using Django was implemented, and the actual purchased function and regional classification were not implemented.
 
 
-Users can participate in the post by expressing their interest through 'like' and 'follow' when they post a photo of a used product's transaction.
+It is a platform that allows users to register transaction items of used products and express their interest through 'likes' of items registered by other users.
+
+In addition, users can easily check their registered products by following their favorite sellers.
 
 ----
 # 💻 Development Environment
