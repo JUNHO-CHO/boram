@@ -145,7 +145,7 @@ In addition, users can easily check their registered products by following their
 #### Ability to add posts made by other users
 |Bright|Dark|
 |----|----|
-|<img src="https://github.com/user-attachments/assets/7de1d38f-5889-4b8f-87bc-b3efa00e593a" width="500">|<img src="https://github.com/user-attachments/assets/83891760-310c-4c79-84b3-0dd810ee9df2" width="500">|
+|<img src="https://github.com/user-attachments/assets/1e3400eb-7659-46f9-8a5a-38e2b6a1fa8b">|<img src="https://github.com/user-attachments/assets/7de1d38f-5889-4b8f-87bc-b3efa00e593a" width="500">|
 
 #### Notification window when deleting
 |Bright|Dark|
