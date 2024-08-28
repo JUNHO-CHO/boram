@@ -135,7 +135,7 @@ In addition, users can easily check their registered products by following their
 #### View posts by other authors
 |Bright|Dark|
 |----|----|
-|<img src="https://github.com/user-attachments/assets/32e40626-72b2-43d7-8e1b-265a1057f488" width="150">|<img src="https://github.com/user-attachments/assets/5aea381e-f7ac-4d7a-9097-92fc69938e5c" width="150">|
+|<img src="https://github.com/user-attachments/assets/32e40626-72b2-43d7-8e1b-265a1057f488" width="300">|<img src="https://github.com/user-attachments/assets/5aea381e-f7ac-4d7a-9097-92fc69938e5c" width="300">|
 
 #### Various functions
 |Additional actions when writing your own posts|Likes & Views|Hashtag|
