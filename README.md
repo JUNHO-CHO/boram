@@ -55,6 +55,7 @@ In addition, users can easily check their registered products by following their
 - User Features
 - Base, Login css
 - Full functionality, error correction and design completion
+- Project Demonstration and Editing
 ----
 
 # 🧬 Directory Structure
