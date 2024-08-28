@@ -122,12 +122,12 @@ In addition, users can easily check their registered products by following their
 #### registration function
 |Bright|Dark|
 |----|----|
-|<img src="https://github.com/user-attachments/assets/2e5ad91f-cd3a-4656-9007-0adf181174ae" width="150">|<img src="https://github.com/user-attachments/assets/2c8b92b4-39e9-4e05-a89e-c61863215190" width="300">|
+|<img src="https://github.com/user-attachments/assets/2e5ad91f-cd3a-4656-9007-0adf181174ae" width="300">|<img src="https://github.com/user-attachments/assets/2c8b92b4-39e9-4e05-a89e-c61863215190" width="300">|
 
 #### Inquiry of the article written by the user himself/herself
 |Bright|Dark|
 |----|----|
-|<img src="https://github.com/user-attachments/assets/a4c6e44f-f855-4523-937e-9e2ded723fee" widh="200">|<img src="https://github.com/user-attachments/assets/0b1c6654-cb32-4a45-aea5-139e89e48173" widh="200">|
+|<img src="https://github.com/user-attachments/assets/a4c6e44f-f855-4523-937e-9e2ded723fee" width="200">|<img src="https://github.com/user-attachments/assets/0b1c6654-cb32-4a45-aea5-139e89e48173" width="200">|
 
 #### View posts by other authors
 |Bright|Dark|
