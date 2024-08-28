@@ -83,7 +83,7 @@ In addition, users can easily check their registered products by following their
 #### Login page brightness adjust mode
 |Bright|Dark|
 |----|----|
-|<img src="https://github.com/user-attachments/assets/78de4b5b-520e-4508-8596-a4c1784bfda4"/ width="300">|![image](https://github.com/user-attachments/assets/5c7f71d8-29ab-4693-9511-26269bf6ce27)|
+|<img src="https://github.com/user-attachments/assets/78de4b5b-520e-4508-8596-a4c1784bfda4" width="300">|![image](https://github.com/user-attachments/assets/5c7f71d8-29ab-4693-9511-26269bf6ce27)|
 
 
 ## Article [publishing function]
