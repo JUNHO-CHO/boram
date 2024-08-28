@@ -29,7 +29,7 @@ Users can participate in the post by expressing their interest through 'like' an
 ----
 # 🧑‍🧑‍🧒‍🧒 Developement Team
 
-`👑Jo Joon Ho` `Jo Min-sung` `Kang Ji-seok` `Kim Na-hyeon`
+`👑Jo Joon-ho` `Jo Min-sung` `Kang Ji-seok` `Kim Na-hyeon`
 
 
 
