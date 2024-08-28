@@ -58,7 +58,7 @@ In addition, users can easily check their registered products by following their
 ----
 
 # 🧬 Directory Structure
-| Directory| Function|
+| Structure| Function|
 |----------------|----------------|
 | accounts | User authentication and account management capabilities |
 | articles | Create, modify, delete, and search posts (objects) |
