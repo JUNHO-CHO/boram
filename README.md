@@ -55,7 +55,7 @@ In addition, users can easily check their registered products by following their
 - Full functionality, error correction and design completion
 ----
 
-# Directory Structure
+# 🧬 Directory Structure
 | Directory| Function|
 |----------------|----------------|
 | accounts | User authentication and account management capabilities |
