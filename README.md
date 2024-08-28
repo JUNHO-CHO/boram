@@ -66,7 +66,7 @@ In addition, users can easily check their registered products by following their
 | spartamarket | Project Settings and Initialization Files |
 | static | Static files (CSS, JS, images, etc.) |
 | templates | Common Django template files |
-| users | User Profiles and Follow Features
+| users | User Profiles and Follow Features|
 
 ----
 # 📌 Project Features
