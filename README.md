@@ -85,7 +85,10 @@ In addition, users can easily check their registered products by following their
 |----|----|
 |<img src="https://github.com/user-attachments/assets/77ad8178-5521-470a-92a3-2e2982bbdd00" width="300">|<img src="https://github.com/user-attachments/assets/07d7809b-1989-4656-8cf4-a81cb4e6870f"  width="300">|
 
-####
+#### Edit member information
+|Bright|Dark|
+|----|----|
+|<img src="https://github.com/user-attachments/assets/5c269ebb-d9bd-42a6-bdac-92f313a93ca9" width="300">|<img src="https://github.com/user-attachments/assets/c7267624-083c-41ba-a385-f2139f04d336" width="300">|
 
 ----
 ## 2. Article [publishing function]
@@ -132,7 +135,7 @@ In addition, users can easily check their registered products by following their
 #### View posts by other authors
 |Bright|Dark|
 |----|----|
-|<img src="https://github.com/user-attachments/assets/32e40626-72b2-43d7-8e1b-265a1057f488" width="150">|<img src="https://github.com/user-attachments/assets/5aea381e-f7ac-4d7a-9097-92fc69938e5c" width="150">|
+|<img src="https://github.com/user-attachments/assets/32e40626-72b2-43d7-8e1b-265a1057f488" width="300">|<img src="https://github.com/user-attachments/assets/5aea381e-f7ac-4d7a-9097-92fc69938e5c" width="400">|
 
 #### Various functions
 |Additional actions when writing your own posts|Likes & Views|Hashtag|
@@ -142,7 +145,7 @@ In addition, users can easily check their registered products by following their
 #### Ability to add posts made by other users
 |Bright|Dark|
 |----|----|
-|<img src="https://github.com/user-attachments/assets/7de1d38f-5889-4b8f-87bc-b3efa00e593a" width="500">|<img src="https://github.com/user-attachments/assets/83891760-310c-4c79-84b3-0dd810ee9df2" width="500">|
+|<img src="https://github.com/user-attachments/assets/9aaa7463-de88-4fa1-8c18-db5e10a134b2" width="300">|<img src="https://github.com/user-attachments/assets/7de1d38f-5889-4b8f-87bc-b3efa00e593a" width="300">|
 
 #### Notification window when deleting
 |Bright|Dark|
@@ -159,6 +162,12 @@ In addition, users can easily check their registered products by following their
 - Follow function: You can follow specific users, and you can check the follower/follow list.
 - Follow: Users follow others.
 - Followers: You can view a list of people who follow you.
+
+### 🖥️ Run a program
+#### User Profile
+|Bright|Dark|
+|----|----|
+|<img src="https://github.com/user-attachments/assets/77aa2e6a-5848-4e0e-abb9-05d73f2775ab" width="300">|<img src="https://github.com/user-attachments/assets/fd4e49ab-c158-40be-babc-02ac29c2db73" width="300">|
 
 ----
 # 📄ERD Diagram
