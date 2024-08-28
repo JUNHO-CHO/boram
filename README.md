@@ -72,7 +72,7 @@ In addition, users can easily check their registered products by following their
 ----
 # 📌 Project Features
 
-## Account [membership function]
+## 1. Account [membership function]
 - Membership: Users can create an account with their ID and password.
 - Login: Existing users can log in with their registered ID and password.
 - Logout: Users can safely terminate their accounts by logging out.
@@ -88,7 +88,7 @@ In addition, users can easily check their registered products by following their
 ####
 
 
-## Article [publishing function]
+## 2. Article [publishing function]
 - Writing and registering: Users can create and post descriptions of objects.
 - Revise text: You can modify the content of your registered text.
 - Delete text: Users can delete their posts.
@@ -110,14 +110,16 @@ In addition, users can easily check their registered products by following their
 |<img src="https://github.com/user-attachments/assets/78de4b5b-520e-4508-8596-a4c1784bfda4" width="300">|<img src="https://github.com/user-attachments/assets/5c7f71d8-29ab-4693-9511-26269bf6ce27"  width="300">|
 
 #### Sort by latest order, old order, popularity order
-|Sorting|
-|----|
-|<img src="https://github.com/user-attachments/assets/7ad77668-fde5-4f35-83e4-9627e3206473" width="300">|
+|Sorting|old order|
+|----|----|
+|<img src="https://github.com/user-attachments/assets/7ad77668-fde5-4f35-83e4-9627e3206473" width="300">|<img src="https://github.com/user-attachments/assets/810d2779-8f3f-4c47-9d8d-9ab36e5685d8" width="300">|
+
+
 
 #### 
 
 
-## User [User Features]
+## 3. User [User Features]
 - Profile page: Users can view their profiles.
 - Username—Displays the name of the user.
 - Subscription Date—Displays the subscription date for the user.
