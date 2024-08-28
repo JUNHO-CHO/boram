@@ -44,7 +44,8 @@
         <button type="button" class="btn btn-secondary">수정</button>
     </a>
     <!-- 글 삭제 버튼 -->
-    <button type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#{{article.id}}modaltarget">삭제</button>
+    <button type="submit" class="btn btn-danger" data-bs-toggle="modal"
+        data-bs-target="#{{article.id}}modaltarget">삭제</button>
     {% endif %}
 </div>
 <div class="modal fade" id="{{article.id}}modaltarget" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -68,5 +69,4 @@
         </div>
     </div>
 </div>
-
 {% endblock content %}
