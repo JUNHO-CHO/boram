@@ -3,8 +3,6 @@
 {% block content %}
 <h2 style="text-align: center;">상품 정보 수정</h2>
 <hr>
-<h2 style="text-align: center;">상품 정보 수정</h2>
-<hr>
 
 <form action="{% url 'articles:update' article.pk %}" method="POST" enctype="multipart/form-data" style="max-width: 600px; margin: 0 auto;">
 <form action="{% url 'articles:update' article.pk %}" method="POST" enctype="multipart/form-data" style="max-width: 600px; margin: 0 auto;">
@@ -41,9 +39,11 @@
         {{ form.tags }}
     </div>
 
+    {% if request.user.id == article.author.id %}
     <div style="text-align: center;">
         <button type="submit" class="btn btn-secondary" style="width: 100px;">수정</button>
     </div>
+    {% endif %}
 </form>
 
 <br>
