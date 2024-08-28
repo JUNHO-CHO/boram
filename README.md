@@ -79,7 +79,7 @@ In addition, users can easily check their registered products by following their
 - Modifying membership information: Users can update their account information.
 - Withdrawal from membership: If the service is no longer available, the user can delete the account.
 
-### 🖥️ Practice
+### 🖥️ Run a program
 #### Login page brightness adjust mode
 |Bright|Dark|
 |----|----|
