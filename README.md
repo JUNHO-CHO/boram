@@ -83,7 +83,9 @@ In addition, users can easily check their registered products by following their
 #### Login page brightness adjust mode
 |Bright|Dark|
 |----|----|
-|<img src="https://github.com/user-attachments/assets/78de4b5b-520e-4508-8596-a4c1784bfda4" width="300">|<img src="https://github.com/user-attachments/assets/5c7f71d8-29ab-4693-9511-26269bf6ce27"  width="300">|
+|<img src="https://github.com/user-attachments/assets/77ad8178-5521-470a-92a3-2e2982bbdd00" width="300">|<img src="https://github.com/user-attachments/assets/07d7809b-1989-4656-8cf4-a81cb4e6870f"  width="300">|
+
+#### 
 
 
 ## Article [publishing function]
@@ -100,6 +102,10 @@ In addition, users can easily check their registered products by following their
 - Item Description: Search based on the item description in the post.
 - Member name: Search based on the author's name.
 - Hashtags: Search with hashtags.
+
+|Bright|Dark|
+|----|----|
+|<img src="https://github.com/user-attachments/assets/78de4b5b-520e-4508-8596-a4c1784bfda4" width="300">|<img src="https://github.com/user-attachments/assets/5c7f71d8-29ab-4693-9511-26269bf6ce27"  width="300">|
 
 ## User [User Features]
 - Profile page: Users can view their profiles.
