@@ -12,6 +12,7 @@ It implemented a basic second-hand transaction web using Django and did not impl
 
 
 Users can participate in the post by expressing their interest through 'like' and 'follow' when they post a photo of a used product's transaction.
+
 ----
 # 💻 Development Environment
 
@@ -61,6 +62,7 @@ boram
 ├── static    # 정적 파일(CSS, JS, 이미지 등)
 ├── templates   # Static files (CSS, JS, images, etc.)
 └── users     # User Profiles and Follow Features
+
 ----
 # 📌 Project Features
 
@@ -95,10 +97,8 @@ boram
 - Follow function: You can follow specific users, and you can check the follower/follow list.
 - Follow: Users follow others.
 - Followers: You can view a list of people who follow you.
-----
-
 
 ----
-# 📄ERD
+# 📄ERD Diagram
 ![ERD](https://github.com/user-attachments/assets/00db2583-9f10-4420-88e5-e1baefadeadb)
 
