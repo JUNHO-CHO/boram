@@ -37,7 +37,7 @@ In addition, users can easily check their registered products by following their
 #### 👑 Cho Jun-ho(Team Leader)
 - membership function
 - Hashtag
-- ppt
+- presentation of ppt materials
 
 #### 👤 Kang Ji-seok
 - membership function
