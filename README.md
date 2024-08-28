@@ -32,7 +32,7 @@ In addition, users can easily check their registered products by following their
 ----
 # 🧑‍🧑‍🧒‍🧒 Developement Team
 
-#### 👑 Cho Joon-ho(Team Leader)
+#### 👑 Cho Jun-ho(Team Leader)
 - membership function
 - Hashtag
 - ppt
