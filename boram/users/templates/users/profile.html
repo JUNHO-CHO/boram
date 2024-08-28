@@ -172,7 +172,7 @@
 
                                 {% if request.user %}
                                 <form action="{% url 'articles:like' article.pk %}" method="POST" class="btn"
-                                    style="padding: 7px 0px 0px 5px; text-align: center; border: none;"
+                                    style="padding: 6px 0px 0px 5px; text-align: center; border: none;"
                                     onclick="event.stopPropagation();">
                                     {% csrf_token %}
                                     {% if user in article.like_users.all %}
@@ -189,7 +189,7 @@
                                 </form>
                                 {% else %}
                                 <form action="" method="POST" class="btn"
-                                    style="padding: 5px 0px 0px 0px; text-align: center;">
+                                    style="padding: 6px 0px 0px 0px; text-align: center;">
                                     {% csrf_token %}
                                     <button onclick="event.stopPropagation();"
                                         style="width: 40px; margin-bottom: 5px; padding: 0px 3px 3px 3px;"
@@ -199,7 +199,7 @@
                                 </form>
                                 {% endif %}
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-eye-fill" viewBox="0 0 16 16" style="margin: 14px 5px 0px 12px;">
+                                    class="bi bi-eye-fill" viewBox="0 0 16 16" style="margin: 13px 5px 0px 12px;">
                                     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
                                     <path
                                         d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7" />

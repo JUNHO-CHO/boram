@@ -537,9 +537,10 @@
     <main class="form-signin w-100 m-auto">
         <form action="" method="POST">
             {% csrf_token %}
-            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+            <a href="{% url 'articles:articles' %}" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
                 <svg class="bi" width="30" height="24">
-                    <img class="mb-4" src="../../../../static/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+                    <img class="mb-4" src="../../../../static/assets/brand/bootstrap-logo.svg" alt="" width="72"
+                        height="57">
                 </svg>
             </a>
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
@@ -547,22 +548,45 @@
             <div class="form-floating">
                 <input type="text" name="username" autofocus="" class="form-control" autocapitalize="none"
                     style="border-bottom-left-radius: 0; border-bottom-right-radius: 0; margin-bottom: -1px;"
-                    autocomplete="username" maxlength="150" required="" id="id_username floatingInput"  placeholder="name@example.com">
+                    autocomplete="username" maxlength="150" required="" id="id_username floatingInput"
+                    placeholder="name@example.com">
                 <label for="floatingInput">User name</label>
             </div>
             <div class="form-floating">
-                <input type="password" name="password" autocomplete="current-password" class="form-control" required="" placeholder="Password"
-                    id="id_password">
+                <input type="password" name="password" autocomplete="current-password" class="form-control" required=""
+                    placeholder="Password" id="id_password">
                 <label for="floatingPassword">Password</label>
             </div>
             <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+            <div style="height: 10px;"></div>
+            <a href="{% url 'accounts:signup' %}" onclick="event.stopPropagation();" class="styled-link" style="margin: 10px 0px 0px 0px;">회원가입</a> 계정 생성하러 가기
             <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
         </form>
         <div class="form-floating">
 
         </div>
     </main>
-    
+    <style>
+        .styled-link {
+            font-size: 16px;
+            color: #007bff; /* 기본 텍스트 색상 */
+            text-decoration: none; /* 기본 링크 밑줄 제거 */
+            transition: color 0.3s, background-color 0.3s, padding 0.3s; /* 부드러운 효과 */
+        }
+        
+        .styled-link:hover,
+        .styled-link:focus {
+            color: #ffffff; /* 호버 시 텍스트 색상 */
+            background-color: #a200ff; /* 호버 시 배경색 */
+            padding: 5px 10px; /* 호버 시 여백 */
+            border-radius: 5px; /* 호버 시 모서리 둥글기 */
+        }
+        
+        .styled-link:active {
+            color: #d3d3d3; /* 클릭 시 텍스트 색상 */
+            background-color: #a200ff;  클릭 시 배경색 */
+        }
+    </style>
 </body>
 {% endblock content %}
 

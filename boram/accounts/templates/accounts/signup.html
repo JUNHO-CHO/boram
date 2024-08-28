@@ -7,6 +7,28 @@
 <form action="{% url 'accounts:signup' %}" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">sign up</button>
+    <button type="submit">sign up</button><br>
+    <a href="{% url 'accounts:login' %}" onclick="event.stopPropagation();" class="styled-link" style="margin: 10px 0px 0px 0px;">로그인</a> 이미 계정이 있다면 
 </form>
+<style>
+    .styled-link {
+        font-size: 16px;
+        color: #007bff; /* 기본 텍스트 색상 */
+        text-decoration: none; /* 기본 링크 밑줄 제거 */
+        transition: color 0.3s, background-color 0.3s, padding 0.3s; /* 부드러운 효과 */
+    }
+    
+    .styled-link:hover,
+    .styled-link:focus {
+        color: #ffffff; /* 호버 시 텍스트 색상 */
+        background-color: #a200ff; /* 호버 시 배경색 */
+        padding: 5px 10px; /* 호버 시 여백 */
+        border-radius: 5px; /* 호버 시 모서리 둥글기 */
+    }
+    
+    .styled-link:active {
+        color: #d3d3d3; /* 클릭 시 텍스트 색상 */
+        background-color: #a200ff;  클릭 시 배경색 */
+    }
+</style>
 {% endblock content %}
