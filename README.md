@@ -6,21 +6,30 @@
 # 👩🏻‍💻 Project Introduction
 
 Team assignments were carried out through the Sparta Coding Club Bootcamp.
+
+
 It implemented a basic second-hand transaction web using Django and did not implement the actual purchased function and regional classification.
+
+
 Users can participate in the post by expressing their interest through 'like' and 'follow' when they post a photo of a used product's transaction.
 ----
 # 💻 Development Environment
 
-Programming Language: python 3.10
-Web Framework: Django 4.2
-Database: SQLite
-IDE: PyCharm, Vs code
-Version Control: Git, Github
-Communication: Zep, Notion, Slack
-Technical stack
-Backend: Python, Django
-Frontend: HTML, CSS, Bootstrap, JS
-Database: Django ORM, SQLite
+|Programming Language| python 3.10|
+|----------------|----------------|
+| Web Framework | Django 4.2|
+| Database | SQLite|
+| IDE | PyCharm, Vs code |
+| Version Control | Git, Github |
+| Communication | Zep, Notion, Slack|
+| Backend | Python, Django |
+| Frontend | HTML, CSS, Bootstrap, JS |
+| Database | Django ORM, SQLite |
+
+----
+# 🧑‍🧑‍🧒‍🧒 Developement Team
+
+`Cho Joon Ho` (Team Leader) `Cho Min-sung` `Kang Ji-seok` `Kim Na-hyeon`
 
 
 
