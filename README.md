@@ -37,18 +37,18 @@ In addition, users can easily check their registered products by following their
 - Hashtag
 - ppt
 
-#### Kang Ji-seok
+#### 👤 Kang Ji-seok
 - membership function
 - Posting css
 - Search Features
 - Create Readme
 
-#### Kim Na-hyeon
+#### 👤 Kim Na-hyeon
 - publishing function
 - User Features
 - Create Readme and erd
 
-#### Jeon Min-sung
+#### 👤 Jeon Min-sung
 - publishing function
 - User Features
 - Base, Login css
