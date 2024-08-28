@@ -114,9 +114,10 @@ In addition, users can easily check their registered products by following their
 |----|----|
 |<img src="https://github.com/user-attachments/assets/7ad77668-fde5-4f35-83e4-9627e3206473" width="300">|<img src="https://github.com/user-attachments/assets/810d2779-8f3f-4c47-9d8d-9ab36e5685d8" width="300">|
 
-
-
-#### 
+#### Search function
+|Bright|Dark|
+|----|----|
+|<img src="https://github.com/user-attachments/assets/0f084c29-d460-4f68-af04-47036ad1d3a1" width="300">|<img src="https://github.com/user-attachments/assets/0e90e328-e3c6-4792-9b6d-020355cbe466" width="300">|
 
 
 ## 3. User [User Features]
