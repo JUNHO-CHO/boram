@@ -2,9 +2,9 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 
-app_name="articles"
+app_name = "articles"
 urlpatterns = [
-    path("index/", views.index, name = "index"),
+    path("index/", views.index, name="index"),
     # 글 목록 페이지
     path("",views.articles, name="articles"),
     # 게시판 글 최신순, 오래된 순 정렬
@@ -23,4 +23,6 @@ urlpatterns = [
         views.comment_delete,
         name="comment_delete",
     ),
+    # 글 검색
+    path("search/", views.search, name="search"),
 ]

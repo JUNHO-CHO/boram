@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Article, Comment, Tag
-from .forms import ArticleForm, CommentForm
+from django.db.models import Q
+from .forms import ArticleForm, CommentForm, SearchForm
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods, require_POST
@@ -34,6 +35,9 @@ def article_detail(request, pk):
     article = Article.objects.get(pk=pk)
     article.search += 1
     article.save()
+    print(article.tags.all())
+    for i in article.tags.all():
+        print(i.name)
     context = {"article": article, }
     return render(request, "articles/article_detail.html", context)
 
@@ -119,6 +123,23 @@ def comment_delete(request, pk, comment_pk):
         if comment.user == request.user:
             comment.delete()
     return redirect("articles:article_detail", pk)
+
+
+def search(request):
+    form = SearchForm(request.GET)
+    results = []
+    if form.is_valid():
+        query = form.cleaned_data['q']
+        results = Article.objects.filter(
+            Q(title__icontains=query) |
+            Q(content__icontains=query) |
+            Q(author__username__icontains=query)
+        )
+    context = {
+        'form': form,
+        'results': results,
+    }
+    return render(request, "articles/search.html", context)
 
 
 def articles_by_tag(request, tag_name):

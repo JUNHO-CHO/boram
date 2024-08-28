@@ -30,9 +30,15 @@
         {% endif %}
         {{ form.image }}
     </div>
+
     <div class="mb-3">
         <label for="{{ form.price.id_for_label }}" class="form-label fs-4">{{ form.price.label }}</label>
         {{ form.price }}
+    </div>
+
+    <div class="mb-3">
+        <label for="{{ form.tags.id_for_label }}" class="form-label fs-4">{{ form.tags.label }}</label>
+        {{ form.tags }}
     </div>
 
     <div style="text-align: center;">
