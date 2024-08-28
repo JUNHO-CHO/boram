@@ -29,23 +29,49 @@ Users can participate in the post by expressing their interest through 'like' an
 ----
 # 🧑‍🧑‍🧒‍🧒 Developement Team
 
-👑Jo Joon-ho
-Jo Min-sung
-Kang Ji-seok
-Kim Na-hyeon
+#### 👑Cho Joon-ho(Team Leader)
+- membership function
+- Hashtag
+- ppt
 
+#### Kang Ji-seok
+- membership function
+- Posting css
+- Search Features
+- Create Readme
 
+#### Kim Na-hyeon
+- publishing function
+- User Features
+- Create Readme and erd
+
+#### Jeon Min-sung
+- publishing function
+- User Features
+- Base, Login css
+- Full functionality, error correction and design completion
+----
+
+디렉토리 구조
+boram
+├── accounts   # User authentication and account management capabilities
+├── articles   # Create, modify, delete, and search posts (objects)
+├── media     # Save uploaded image file
+├── spartamarket # Project Settings and Initialization Files
+├── static    # 정적 파일(CSS, JS, 이미지 등)
+├── templates   # Static files (CSS, JS, images, etc.)
+└── users     # User Profiles and Follow Features
 ----
 # 📌 Project Features
 
-## Account
+### Account
 - Membership: Users can create an account with their ID and password.
 - Login: Existing users can log in with their registered ID and password.
 - Logout: Users can safely terminate their accounts by logging out.
 - Modifying membership information: Users can update their account information.
 - Withdrawal from membership: If the service is no longer available, the user can delete the account.
 
-## Article
+### Article
 - Writing and registering: Users can create and post descriptions of objects.
 - Revise text: You can modify the content of your registered text.
 - Delete text: Users can delete their posts.
@@ -60,7 +86,7 @@ Kim Na-hyeon
 - Member name: Search based on the author's name.
 - Hashtags: Search with hashtags.
 
-## User
+### User
 - Profile page: Users can view their profiles.
 - Username—Displays the name of the user.
 - Subscription Date—Displays the subscription date for the user.
@@ -69,6 +95,9 @@ Kim Na-hyeon
 - Follow function: You can follow specific users, and you can check the follower/follow list.
 - Follow: Users follow others.
 - Followers: You can view a list of people who follow you.
+----
+
+
 ----
 # 📄ERD
 ![ERD](https://github.com/user-attachments/assets/00db2583-9f10-4420-88e5-e1baefadeadb)
