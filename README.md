@@ -87,7 +87,7 @@ In addition, users can easily check their registered products by following their
 
 ####
 
-
+----
 ## 2. Article [publishing function]
 - Writing and registering: Users can create and post descriptions of objects.
 - Revise text: You can modify the content of your registered text.
@@ -119,7 +119,37 @@ In addition, users can easily check their registered products by following their
 |----|----|
 |<img src="https://github.com/user-attachments/assets/0f084c29-d460-4f68-af04-47036ad1d3a1" width="300">|<img src="https://github.com/user-attachments/assets/0e90e328-e3c6-4792-9b6d-020355cbe466" width="300">|
 
+#### registration function
+|Bright|Dark|
+|----|----|
+|<img src="https://github.com/user-attachments/assets/2e5ad91f-cd3a-4656-9007-0adf181174ae" width="300">|<img src="https://github.com/user-attachments/assets/2c8b92b4-39e9-4e05-a89e-c61863215190" width="300">|
 
+#### Inquiry of the article written by the user himself/herself
+|Bright|Dark|
+|----|----|
+|<img src="https://github.com/user-attachments/assets/a4c6e44f-f855-4523-937e-9e2ded723fee" width="200">|<img src="https://github.com/user-attachments/assets/0b1c6654-cb32-4a45-aea5-139e89e48173" width="200">|
+
+#### View posts by other authors
+|Bright|Dark|
+|----|----|
+|<img src="https://github.com/user-attachments/assets/32e40626-72b2-43d7-8e1b-265a1057f488" width="150">|<img src="https://github.com/user-attachments/assets/5aea381e-f7ac-4d7a-9097-92fc69938e5c" width="150">|
+
+#### Various functions
+|Additional actions when writing your own posts|Likes & Views|Hashtag|
+|----|----|----|
+|<img src="https://github.com/user-attachments/assets/f96bfc6b-8866-4b7c-ab6e-6f4d30872edb" width="500">|<img src="https://github.com/user-attachments/assets/a7f3fc22-c77d-4372-8f94-8d2165ca7d85" width="500">|<img src="https://github.com/user-attachments/assets/9b79f128-01eb-409f-8355-5a23346bb85d" width="500">|
+
+#### Ability to add posts made by other users
+|Bright|Dark|
+|----|----|
+|<img src="https://github.com/user-attachments/assets/7de1d38f-5889-4b8f-87bc-b3efa00e593a" width="500">|<img src="https://github.com/user-attachments/assets/83891760-310c-4c79-84b3-0dd810ee9df2" width="500">|
+
+#### Notification window when deleting
+|Bright|Dark|
+|----|----|
+|<img src="https://github.com/user-attachments/assets/64841549-7051-4a4f-94d9-85532c16f509" width="500">|<img src="https://github.com/user-attachments/assets/5a0353b9-0856-4ea9-ba24-f714e06adcdb" width="500">
+
+----
 ## 3. User [User Features]
 - Profile page: Users can view their profiles.
 - Username—Displays the name of the user.
