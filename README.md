@@ -104,6 +104,8 @@ In addition, users can easily check their registered products by following their
 - Follow: Users follow others.
 - Followers: You can view a list of people who follow you.
 
+|||
+
 ----
 # 📄ERD Diagram
 ![ERD](https://github.com/user-attachments/assets/00db2583-9f10-4420-88e5-e1baefadeadb)
