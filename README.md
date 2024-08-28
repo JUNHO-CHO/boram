@@ -17,7 +17,7 @@ Users can participate in the post by expressing their interest through 'like' an
 # 💻 Development Environment
 
 |Programming Language| python 3.10|
-|----------------|----------------|
+|:----------------:|:----------------:|
 | Web Framework | Django 4.2|
 | Database | SQLite|
 | IDE | PyCharm, Vs code |
@@ -53,15 +53,16 @@ Users can participate in the post by expressing their interest through 'like' an
 - Full functionality, error correction and design completion
 ----
 
-디렉토리 구조
-boram
-├── accounts   # User authentication and account management capabilities
-├── articles   # Create, modify, delete, and search posts (objects)
-├── media     # Save uploaded image file
-├── spartamarket # Project Settings and Initialization Files
-├── static    # 정적 파일(CSS, JS, 이미지 등)
-├── templates   # Static files (CSS, JS, images, etc.)
-└── users     # User Profiles and Follow Features
+# Directory Structure
+| Directory| Function|
+|----------------|----------------|
+| accounts | User authentication and account management capabilities |
+| articles | Create, modify, delete, and search posts (objects) |
+|  media | Save uploaded image file |
+| spartamarket | Project Settings and Initialization Files |
+| static | Static files (CSS, JS, images, etc.) |
+| templates | Common Django template files |
+| users | User Profiles and Follow Features
 
 ----
 # 📌 Project Features
