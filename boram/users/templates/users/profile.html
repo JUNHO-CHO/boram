@@ -12,28 +12,55 @@
     <img src="/media/images/default.png" style="width: 150px; object-fit: cover;" class="rounded-circle">
     {% endif %}
     <h2 style="padding: 0 0 0 20; margin-left: 30px;">{{ member.username }}</h2>
-    <p>
-        팔로워 {{ member.followers.count }}명 / 팔로잉 {{ member.followings.count }}명
-    </p>
+    <div>{{member.date_joined}}</div>
+    <div class="row row-cols-auto">
+        <div class="col">
+            <p>
+                팔로워 {{ member.followers.count }}명 / 팔로잉 {{ member.followings.count }}명
+            </p>
+        </div>
+        <div class="col">
+            <form action="{% url 'users:follow' member.id %}" method="POST">
+                {% csrf_token %}
+                {% if request.user in member.followers.all %}
+                <button type="submit" class="btn btn-outline-danger d-inline-flex align-items-center"  style="border: none; background: transparent; color: #dc3545;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                      </svg>
+                    언팔로우
+                </button>
+                {% else %}
+                <button type="submit" class="btn btn-outline-danger d-inline-flex align-items-center" style="border: none; background: transparent; color: #dc3545;">
+                    <!-- SVG Icon for Unfollow -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star" viewBox="0 0 16 16">
+                        <path
+                            d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z" />
+                    </svg>
+                    팔로우
+                </button>
+                {% endif %}
+            </form>
+        </div>
+    </div>
 </div>
 
-<div>
-    <form action="{% url 'users:follow' member.id %}" method="POST">
-        {% csrf_token %}
-        {% if request.user in member.followers.all %}
-        <button type="submit">언팔로우</button>
-        {% else %}
-        <button type="submit">팔로우</button>
-        {% endif %}
-    </form>
-</div>
-
-<a href="{% url 'articles:articles' %}">홈으로 돌아가기</a>
+<a href="{% url 'articles:articles' %}" class="btn btn-primary d-inline-flex align-items-center">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill me-2"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+            d="M8 .276a.5.5 0 0 1 .638.057l6 6a.5.5 0 0 1-.638.765L8 1.541 2 7.098v7.41a.5.5 0 0 1-.5.5H1a.5.5 0 0 1-.5-.5v-7.41L.637 7.098a.5.5 0 1 1-.638-.765l6-6A.5.5 0 0 1 8 .276z" />
+        <path fill-rule="evenodd"
+            d="M7 13.5v-3h2v3a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-6.585l-4-4-4 4V13.5a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-3h2v3a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-3H5v3a2 2 0 0 1-2 2H1a2 2 0 0 1-2-2V7.707a1 1 0 0 1 .293-.707l6-6A1 1 0 0 1 8 .276a1 1 0 0 1 .707.293l6 6A1 1 0 0 1 15.707 7.707L8 1.414l-6.707 6.293A1 1 0 0 1 .293 7.707V13.5a2 2 0 0 1-2 2h3a2 2 0 0 1 2-2v-3h2v3z" />
+    </svg>
+    홈으로 돌아가기
+</a>
 
 
 <div class="album py-5 bg-body-tertiary">
     <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 g-2 g-1g-3">
+        <div
+            class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-2 g-1g-3">
             {% for article in articles %}
             <div class="col"
                 onclick="event.stopPropagation(); window.location.href='{% url 'articles:article_detail' article.pk %}'">
@@ -64,8 +91,7 @@
                         </div> -->
                         <div class="container text-center">
                             <div class="row row-cols-auto">
-                                <div class="col" style="padding: 0px 4px 0px 1px;"> </div>
-                                <div class="col" style="padding: 0px 4px 0px 4px;">{{ article.title }}</div>
+                                <div class="col" style="padding: 1px 4px 0px 4px;">{{ article.title }}</div>
                                 <div class="col-auto ms-auto">
                                     <div class="dropdown" onclick="event.stopPropagation();">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -112,14 +138,28 @@
                             </div>
                         </div>
                         <div class="container">
-                            <div class="row row-cols-auto">
+                            <div class="row">
+                                <div class="col" style="overflow: hidden; white-space: nowrap;">
+                                    <div class="d-flex gap-2 tag-container" style="overflow: hidden; overflow-x: auto; white-space: nowrap; margin: 3px 0px 6px 0px;">
+                                        {% for tag in article.tags.all %}
+                                        <span class="badge bg-primary-subtle text-primary-emphasis rounded-pill">
+                                            <a href="{% url 'articles:articles_by_tag' tag.name %}" class="" style="display: inline-block;">
+                                                #{{ tag.name }}
+                                            </a>
+                                        </span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- <div class="row row-cols-auto" style="overflow-x: auto; white-space: nowrap;">
                                 해시태그:
                                 {% for tag in article.tags.all %}
-                                <a href="{% url 'articles:articles_by_tag' tag.name %}"
-                                    class="badge bg-secondary col">#{{ tag.name }}</a>
-                                {% if not forloop.last %}, {% endif %}
+                                <a href="{% url 'articles:articles_by_tag' tag.name %}" class="badge bg-secondary" style="display: inline-block;">
+                                    #{{ tag.name }}
+                                </a>
                                 {% endfor %}
-                            </div>
+                            </div> -->
                         </div>
                         <div class="d-flex justify-content-between align-items-center" style="height: 30px;">
                             <div class="btn-group" style="height: 30;">
@@ -132,16 +172,16 @@
 
                                 {% if request.user %}
                                 <form action="{% url 'articles:like' article.pk %}" method="POST" class="btn"
-                                    style="padding: 5px 0px 0px 5px; text-align: center;"
+                                    style="padding: 7px 0px 0px 5px; text-align: center; border: none;"
                                     onclick="event.stopPropagation();">
                                     {% csrf_token %}
                                     {% if user in article.like_users.all %}
                                     <button type="submit" onclick="event.stopPropagation();"
-                                        style="width: 20px; margin-bottom: 5px; padding: 3px;"
+                                        style="width: 20px; margin-bottom: 5px; padding: 3px; border: none;"
                                         class="btn btn-sum text-danger"><i class="fa-solid fa-heart"></i></button>
                                     {% else %}
                                     <button type="submit" onclick="event.stopPropagation();"
-                                        style="width: 20px; margin-bottom: 5px; padding: 3px;"
+                                        style="width: 20px; margin-bottom: 5px; padding: 3px; border: none;"
                                         class="btn btn-sum text-danger"><i class="fa-regular fa-heart"></i></button>
                                     {% endif %}
                                     <div style="display: inline-block;">{{article.like_users.all.count}}</div>
@@ -152,7 +192,7 @@
                                     style="padding: 5px 0px 0px 0px; text-align: center;">
                                     {% csrf_token %}
                                     <button onclick="event.stopPropagation();"
-                                        style="width: 40px; margin-bottom: 5px; padding: 3px;"
+                                        style="width: 40px; margin-bottom: 5px; padding: 0px 3px 3px 3px;"
                                         class="btn btn-sum text-danger"><i class="fa-regular fa-heart"></i></button>
                                     <div style="display: inline-block;">{{article.like_users.all.count}}</div>
 
@@ -170,8 +210,7 @@
                             </div>
                             <small class="text-body-secondary">{{ article.time_dif }}</small>
                         </div>
-                        <!-- 해시태그 표시 부분 -->
-                        
+
                     </div>
                 </div>
             </div>
