@@ -132,22 +132,22 @@ In addition, users can easily check their registered products by following their
 #### Inquire articles written by other users
 |Bright|Dark|
 |----|----|
-|<img src="https://github.com/user-attachments/assets/32e40626-72b2-43d7-8e1b-265a1057f488" width="300">|<img src="https://github.com/user-attachments/assets/5aea381e-f7ac-4d7a-9097-92fc69938e5c" width="300">|
+|<img src="https://github.com/user-attachments/assets/32e40626-72b2-43d7-8e1b-265a1057f488" width="150">|<img src="https://github.com/user-attachments/assets/5aea381e-f7ac-4d7a-9097-92fc69938e5c" width="150">|
 
 #### Various functions
 |Additional actions when writing your own posts|Likes & Views|Hashtag|
 |----|----|----|
-|<img src="https://github.com/user-attachments/assets/f96bfc6b-8866-4b7c-ab6e-6f4d30872edb" width="150">|<img src="https://github.com/user-attachments/assets/a7f3fc22-c77d-4372-8f94-8d2165ca7d85" width="150">|<img src="https://github.com/user-attachments/assets/9b79f128-01eb-409f-8355-5a23346bb85d" width="150">|
+|<img src="https://github.com/user-attachments/assets/f96bfc6b-8866-4b7c-ab6e-6f4d30872edb" width="500">|<img src="https://github.com/user-attachments/assets/a7f3fc22-c77d-4372-8f94-8d2165ca7d85" width="500">|<img src="https://github.com/user-attachments/assets/9b79f128-01eb-409f-8355-5a23346bb85d" width="500">|
 
 #### Ability to add posts made by other users
 |Bright|Dark|
 |----|----|
-|<img src="https://github.com/user-attachments/assets/7de1d38f-5889-4b8f-87bc-b3efa00e593a" width="200">|<img src="https://github.com/user-attachments/assets/83891760-310c-4c79-84b3-0dd810ee9df2" width="200">|
+|<img src="https://github.com/user-attachments/assets/7de1d38f-5889-4b8f-87bc-b3efa00e593a" width="500">|<img src="https://github.com/user-attachments/assets/83891760-310c-4c79-84b3-0dd810ee9df2" width="500">|
 
 #### Notification window when deleting
 |Bright|Dark|
 |----|----|
-|<img src="https://github.com/user-attachments/assets/64841549-7051-4a4f-94d9-85532c16f509" width="200">|<img src="https://github.com/user-attachments/assets/5a0353b9-0856-4ea9-ba24-f714e06adcdb" width="200">
+|<img src="https://github.com/user-attachments/assets/64841549-7051-4a4f-94d9-85532c16f509" width="500">|<img src="https://github.com/user-attachments/assets/5a0353b9-0856-4ea9-ba24-f714e06adcdb" width="500">
 
 ----
 ## 3. User [User Features]
