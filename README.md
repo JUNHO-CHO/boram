@@ -32,6 +32,8 @@ In addition, users can easily check their registered products by following their
 ----
 # 🧑‍🧑‍🧒‍🧒 Developement Team
 
+[boram-notion](https://teamsparta.notion.site/b1f541f0549f4e7f9e07c9cc547f1ec6)
+
 #### 👑 Cho Jun-ho(Team Leader)
 - membership function
 - Hashtag
