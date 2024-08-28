@@ -72,14 +72,21 @@ In addition, users can easily check their registered products by following their
 ----
 # 📌 Project Features
 
-### Account [membership function]
+## Account [membership function]
 - Membership: Users can create an account with their ID and password.
 - Login: Existing users can log in with their registered ID and password.
 - Logout: Users can safely terminate their accounts by logging out.
 - Modifying membership information: Users can update their account information.
 - Withdrawal from membership: If the service is no longer available, the user can delete the account.
 
-### Article [publishing function]
+### 🖥️ Practice
+#### Login page brightness adjust mode
+|Bright|Dark|
+|----|----|
+|<img src="https://github.com/user-attachments/assets/78de4b5b-520e-4508-8596-a4c1784bfda4"/ width="300">|![image](https://github.com/user-attachments/assets/5c7f71d8-29ab-4693-9511-26269bf6ce27)|
+
+
+## Article [publishing function]
 - Writing and registering: Users can create and post descriptions of objects.
 - Revise text: You can modify the content of your registered text.
 - Delete text: Users can delete their posts.
@@ -94,7 +101,7 @@ In addition, users can easily check their registered products by following their
 - Member name: Search based on the author's name.
 - Hashtags: Search with hashtags.
 
-### User [User Features]
+## User [User Features]
 - Profile page: Users can view their profiles.
 - Username—Displays the name of the user.
 - Subscription Date—Displays the subscription date for the user.
@@ -103,10 +110,6 @@ In addition, users can easily check their registered products by following their
 - Follow function: You can follow specific users, and you can check the follower/follow list.
 - Follow: Users follow others.
 - Followers: You can view a list of people who follow you.
-
-|Features|execute a function|
-|--------|--------|
-|Account|![image](https://github.com/user-attachments/assets/13feeb32-6e43-4268-8a2c-e60c2164112c)|
 
 ----
 # 📄ERD Diagram
